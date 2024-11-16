@@ -1,0 +1,12 @@
+@import 'variables';
+@import 'fonts';
+@import 'reset';
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.d-flex {
+    display: flex;
+}
