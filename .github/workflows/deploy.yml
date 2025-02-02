@@ -19,6 +19,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+          cache: 'npm'  # Speeds up npm install by caching dependencies
 
       - name: Install dependencies
         run: npm install
@@ -30,5 +31,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages  # Deploy to the "gh-pages" branch
-          folder: dist  # Deploy the built Angular files from "dist"
+          folder: dist/browser  # ✅ Deploy only the browser folder
+          clean: true  # ✅ Remove old files before deploying
           token: ${{ secrets.GITHUB_TOKEN }}  # 🔥 Use GitHub's built-in token
