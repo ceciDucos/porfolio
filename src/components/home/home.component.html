@@ -1,12 +1,30 @@
 <div class="home">
   <div class="home__text-section">
-    <p class="home__name" @fadeInName>Cecilia Ducos</p>
-    <h1 class="home__title" @fadeInSlideUpTitle>Hi! I'm Cecilia, <br>Ready to build?</h1>
+    <p class="home__name" @fadeInName>{{ 'header.name' | translate }}</p>
+    <h1 class="home__title" @fadeInSlideUpTitle>{{ 'header.title.0' | translate }}<br>{{ 'header.title.1' | translate }}</h1>
     <p class="home__description" @fadeInSlideDescription>
-      I am a Front-End Developer with over 5 years of experience in web application development, specializing in Angular, TypeScript, and Javascript. I am proficient in building dynamic, scalable e-commerce applications and optimizing performance. I am skilled in agile methodologies, cross-functional collaboration, and cloud technologies such as AWS.
+        {{ 'header.description' | translate }}
     </p>
   </div>
   <div class="home__item">
-    <img src="animal.png" alt="second"> 
+    <img src="home.jpeg" alt="second"> 
   </div>
 </div>
+
+<section class="technologies">
+  <h2 class="technologies__title">Technologies & Tools</h2>
+  <div class="technologies__icons">
+    <img src="path-to-icon1.png" alt="Icon 1" class="technologies__icon" />
+    <img src="path-to-icon2.png" alt="Icon 2" class="technologies__icon" />
+    <img src="path-to-icon3.png" alt="Icon 3" class="technologies__icon" />
+    <img src="path-to-icon4.png" alt="Icon 4" class="technologies__icon" />
+    <img src="path-to-icon5.png" alt="Icon 5" class="technologies__icon" />
+    <img src="path-to-icon6.png" alt="Icon 6" class="technologies__icon" />
+    <img src="path-to-icon7.png" alt="Icon 7" class="technologies__icon" />
+    <img src="path-to-icon8.png" alt="Icon 8" class="technologies__icon" />
+    <img src="path-to-icon9.png" alt="Icon 9" class="technologies__icon" />
+    <img src="path-to-icon10.png" alt="Icon 10" class="technologies__icon" />
+    <img src="path-to-icon11.png" alt="Icon 11" class="technologies__icon" />
+    <img src="path-to-icon12.png" alt="Icon 12" class="technologies__icon" />
+  </div>
+</section>

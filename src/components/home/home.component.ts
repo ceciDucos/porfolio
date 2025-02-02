@@ -1,11 +1,11 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, TranslateModule],
     selector: 'home',
     templateUrl: 'home.component.html',
     styleUrls: ['home.component.scss'],
