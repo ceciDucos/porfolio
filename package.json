@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 6500",
-    "build": "ng build --output-path docs",
+    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:ceci-porfolio": "node dist/ceci-porfolio/server/server.mjs"
