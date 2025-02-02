@@ -76,39 +76,35 @@
     }
 }
 
-/* Section container */
 .technologies {
-  padding: 2rem;
-  text-align: center;
-  background-color: #fff;
+    font-family: "Poppins", "Poppins Placeholder", sans-serif;
+    padding: 2rem;
+    text-align: center;
+    background-color: #fff;
   
-    /* Title styling */
-    .technologies__title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-    color: #333;
+    &__title {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+        color: #333;
     }
 
-    /* Icon container */
-    .technologies__icons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.5rem; /* Space between icons */
+    &__icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem; 
     }
 
-    /* Individual icon */
-    .technologies__icon {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
+    &__icon {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+        transition: transform 0.3s ease;
     }
 
-    /* Hover effect for icons */
-    .technologies__icon:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
+    &__icon:hover {
+        transform: scale(1.1);
     }
 }
 
