@@ -37,12 +37,12 @@ jobs:
                   echo "export const environment = {
                     production: true,
                     emailjs: {
-                      serviceId: '${{ secrets.EMAILJS_SERVICE_ID }}',
-                      templateId: '${{ secrets.EMAILJS_TEMPLATE_ID }}',
-                      publicKey: '${{ secrets.EMAILJS_PUBLIC_KEY }}'
+                      serviceId: '${{secrets.EMAILJS_SERVICE_ID}}',
+                      templateId: '${{secrets.EMAILJS_TEMPLATE_ID}}',
+                      publicKey: '${{secrets.EMAILJS_PUBLIC_KEY}}'
                     },
                     features: {
-                      workInProgress: '${{ secrets.FEATURE_WORK_IN_PROGRESS }}'
+                      workInProgress: '${{secrets.FEATURE_WORK_IN_PROGRESS}}'
                     }
                   };" > ./src/environments/environment.prod.ts
                   echo "✅ Environment file created successfully!"
