@@ -33,6 +33,8 @@ jobs:
                   echo "FEATURE_WORK_IN_PROGRESS=${{ secrets.FEATURE_WORK_IN_PROGRESS }}"
 
             - name: Set Environment Variables in Angular
+              env:
+                  FEATURE_WORK_IN_PROGRESS: ${{ secrets.FEATURE_WORK_IN_PROGRESS }}
               run: |
                   echo "export const environment = {
                     production: true,
@@ -42,7 +44,8 @@ jobs:
                       publicKey: '${{secrets.EMAILJS_PUBLIC_KEY}}'
                     },
                     features: {
-                      workInProgress: '${{secrets.FEATURE_WORK_IN_PROGRESS}}'
+                      workInProgress: $FEATURE_WORK_IN_PROGRESS,
+                      algo: '${{secrets.ALGO}}'
                     }
                   };" > ./src/environments/environment.prod.ts
                   echo "✅ Environment file created successfully!"
