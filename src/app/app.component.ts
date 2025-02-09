@@ -13,7 +13,7 @@ import { WorkInProgressComponent } from '../components/work-in-progress/work-in-
     styleUrl: './app.component.scss',
 })
 export class AppComponent {
-    title = 'ceci-porfolio';
+    title = 'porfolio';
     isWorkInProgress = environment.features.workInProgress;
 
     constructor(private translate: TranslateService) {

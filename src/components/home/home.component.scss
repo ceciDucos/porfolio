@@ -109,18 +109,63 @@
 }
 
 .contact {
-    min-height: 300px;
-    background-color: antiquewhite;
+    height: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e5e4e2;
+    font-family: 'Poppins', 'Poppins Placeholder', sans-serif;
+
+    &__row {
+        display: flex;
+        gap: 50px;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 50px;
+    }
 
     &__form {
         display: flex;
         flex-direction: column;
         width: 100%;
         align-items: center;
+        justify-content: center;
+        max-width: 1250px;
     }
 
     &__field {
         font-size: 20px;
+        width: 100%;
         margin-bottom: 10px;
+        outline: none;
+        border: 0;
+        height: 50px;
+    }
+
+    &__text-area {
+        font-size: 16px;
+        width: 100%;
+        outline: none;
+        border: 0;
+        height: 200px;
+    }
+
+    &__label {
+        margin-bottom: 13px;
+    }
+
+    &__column {
+        width: 100%;
+    }
+
+    &__send-btn {
+        font-family: 'Poppins', 'Poppins Placeholder', sans-serif;
+        font-size: 16px;
+        margin-top: 63px;
+        background-color: black;
+        color: white;
+        height: 50px;
+        width: 50%;
+        align-self: flex-start;
     }
 }
