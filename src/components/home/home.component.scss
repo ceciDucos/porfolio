@@ -18,7 +18,7 @@
             width: 100%;
         }
     }
-    
+
     &__text-section {
         width: 100%;
         flex: 1;
@@ -30,9 +30,9 @@
     &__name {
         font-size: 17px;
         font-family: 'Inter', sans-serif;
-        font-weight: 600;    
-        text-align: center; 
-        color: v.$black-color;                    
+        font-weight: 600;
+        text-align: center;
+        color: v.$black-color;
         margin-top: 21px;
 
         @media only screen and (min-width: v.$desktop) {
@@ -41,11 +41,11 @@
     }
 
     &__title {
-        font-family: 'Inter', sans-serif; 
+        font-family: 'Inter', sans-serif;
         font-size: 29px;
-        font-weight: 700;         
+        font-weight: 700;
         text-align: center;
-        color: v.$black-color;  
+        color: v.$black-color;
         margin: 45px 0 20px;
         line-height: 1.2;
 
@@ -57,7 +57,7 @@
 
     &__description {
         font-size: 19px;
-        font-family: "Poppins", "Poppins Placeholder", sans-serif;
+        font-family: 'Poppins', 'Poppins Placeholder', sans-serif;
         font-weight: 300;
         text-align: center;
         color: v.$grey-color;
@@ -77,11 +77,11 @@
 }
 
 .technologies {
-    font-family: "Poppins", "Poppins Placeholder", sans-serif;
+    font-family: 'Poppins', 'Poppins Placeholder', sans-serif;
     padding: 2rem;
     text-align: center;
     background-color: #fff;
-  
+
     &__title {
         font-size: 2rem;
         font-weight: bold;
@@ -93,7 +93,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 1.5rem; 
+        gap: 1.5rem;
     }
 
     &__icon {
@@ -108,3 +108,19 @@
     }
 }
 
+.contact {
+    min-height: 300px;
+    background-color: antiquewhite;
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    &__field {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+}

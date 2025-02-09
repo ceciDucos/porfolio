@@ -1,36 +1,59 @@
 name: Deploy Angular to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main  # Runs when changes are pushed to "main"
+    push:
+        branches:
+            - main # Runs when changes are pushed to "main"
 
 permissions:
-  contents: write  # 🔥 Give Actions permission to push changes
+    contents: write # 🔥 Give Actions permission to push changes
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'npm'  # Speeds up npm install by caching dependencies
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+                  cache: 'npm' # Speeds up npm install by caching dependencies
 
-      - name: Install dependencies
-        run: npm install
+            - name: Install dependencies
+              run: npm install
 
-      - name: Build Angular app
-        run: npm run build
+            - name: Debug Environment Variables
+              run: |
+                  echo "Checking environment variables..."
+                  echo "EMAILJS_SERVICE_ID=${{ secrets.EMAILJS_SERVICE_ID }}"
+                  echo "EMAILJS_TEMPLATE_ID=${{ secrets.EMAILJS_TEMPLATE_ID }}"
+                  echo "EMAILJS_PUBLIC_KEY=${{ secrets.EMAILJS_PUBLIC_KEY }}"
+                  echo "FEATURE_WORK_IN_PROGRESS=${{ secrets.FEATURE_WORK_IN_PROGRESS }}"
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages  # Deploy to the "gh-pages" branch
-          folder: dist/browser  # ✅ Deploy only the browser folder
-          clean: true  # ✅ Remove old files before deploying
-          token: ${{ secrets.GITHUB_TOKEN }}  # 🔥 Use GitHub's built-in token
+            - name: Set Environment Variables in Angular
+              run: |
+                  echo "export const environment = {
+                    production: true,
+                    emailjs: {
+                      serviceId: '${{ secrets.EMAILJS_SERVICE_ID }}',
+                      templateId: '${{ secrets.EMAILJS_TEMPLATE_ID }}',
+                      publicKey: '${{ secrets.EMAILJS_PUBLIC_KEY }}'
+                    },
+                    features: {
+                      workInProgress: '${{ secrets.FEATURE_WORK_IN_PROGRESS }}'
+                    }
+                  };" > ./src/environments/environment.prod.ts
+                  echo "✅ Environment file created successfully!"
+
+            - name: Build Angular app
+              run: npm run build
+
+            - name: Deploy to GitHub Pages
+              uses: JamesIves/github-pages-deploy-action@v4
+              with:
+                  branch: gh-pages # Deploy to the "gh-pages" branch
+                  folder: dist/browser # ✅ Deploy only the browser folder
+                  clean: true # ✅ Remove old files before deploying
+                  token: ${{ secrets.GITHUB_TOKEN }} # 🔥 Use GitHub's built-in token

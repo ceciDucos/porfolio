@@ -1,1 +1,4 @@
-<router-outlet />
+<app-work-in-progress *ngIf="isWorkInProgress"></app-work-in-progress>
+<ng-container *ngIf="!isWorkInProgress">
+    <router-outlet></router-outlet>
+</ng-container>

@@ -1,31 +1,42 @@
 <div class="home">
-  <div class="home__text-section">
-    <p class="home__name" @fadeInName>{{ 'header.name' | translate }}</p>
-    <h1 class="home__title" @fadeInSlideUpTitle>{{ 'header.title.0' | translate }}<br>{{ 'header.title.1' | translate }}</h1>
-    <p class="home__description" @fadeInSlideDescription>
-        {{ 'header.description' | translate }}
-    </p>
-  </div>
-  <div class="home__item">
-    <img src="home.jpeg" alt="second"> 
-  </div>
+    <div class="home__text-section">
+        <p class="home__name" @fadeInName>{{ 'header.name' | translate }}</p>
+        <h1 class="home__title" @fadeInSlideUpTitle>
+            {{ 'header.title.0' | translate }}<br />{{ 'header.title.1' | translate }}
+        </h1>
+        <p class="home__description" @fadeInSlideDescription>
+            {{ 'header.description' | translate }}
+        </p>
+    </div>
+    <div class="home__item">
+        <img src="home.jpeg" alt="second" />
+    </div>
 </div>
 
 <section class="technologies">
-  <p class="technologies__title">{{ 'technologies.title' | translate }}</p>
-  <div class="technologies__icons">
-    <img src="icons/octopus.png" alt="Icon 1" class="technologies__icon" />
-    <img src="icons/typescript.png" alt="Icon 2" class="technologies__icon" />
-    <img src="icons/rxjs.png" alt="Icon 3" class="technologies__icon" />
-    <img src="icons/okta.png" alt="Icon 4" class="technologies__icon" />
-    <img src="icons/karma.png" alt="Icon 5" class="technologies__icon" />
-    <img src="icons/jenkins.png" alt="Icon 6" class="technologies__icon" />
-    <img src="icons/jasmine.png" alt="Icon 7" class="technologies__icon" />
-    <img src="icons/docker.png" alt="Icon 8" class="technologies__icon" />
-    <img src="icons/javascript.png" alt="Icon 8" class="technologies__icon" />
-    <img src="icons/angular.png" alt="Icon 9" class="technologies__icon" />
-    <img src="icons/circleci.png" alt="Icon 10" class="technologies__icon" />
-    <img src="icons/aws.png" alt="Icon 11" class="technologies__icon" />
-    <img src="icons/sass.png" alt="Icon 12" class="technologies__icon" />
-  </div>
+    <p class="technologies__title">{{ 'technologies.title' | translate }}</p>
+    <div class="technologies__icons">
+        <img src="icons/octopus.png" alt="Icon 1" class="technologies__icon" />
+        <img src="icons/typescript.png" alt="Icon 2" class="technologies__icon" />
+        <img src="icons/rxjs.png" alt="Icon 3" class="technologies__icon" />
+        <img src="icons/okta.png" alt="Icon 4" class="technologies__icon" />
+        <img src="icons/karma.png" alt="Icon 5" class="technologies__icon" />
+        <img src="icons/jenkins.png" alt="Icon 6" class="technologies__icon" />
+        <img src="icons/jasmine.png" alt="Icon 7" class="technologies__icon" />
+        <img src="icons/docker.png" alt="Icon 8" class="technologies__icon" />
+        <img src="icons/javascript.png" alt="Icon 8" class="technologies__icon" />
+        <img src="icons/angular.png" alt="Icon 9" class="technologies__icon" />
+        <img src="icons/circleci.png" alt="Icon 10" class="technologies__icon" />
+        <img src="icons/aws.png" alt="Icon 11" class="technologies__icon" />
+        <img src="icons/sass.png" alt="Icon 12" class="technologies__icon" />
+    </div>
 </section>
+
+<div class="contact">
+    <form class="contact__form" [formGroup]="contactForm" (ngSubmit)="sendEmail()">
+        <input class="contact__field" type="text" formControlName="name" placeholder="Your Name" />
+        <input class="contact__field" type="email" formControlName="email" placeholder="Your Email" />
+        <textarea class="contact__field" formControlName="message" placeholder="Your Message"></textarea>
+        <button type="submit" [disabled]="contactForm.invalid || loading">{{ 'common.send' | translate }}</button>
+    </form>
+</div>
