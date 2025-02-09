@@ -24,6 +24,29 @@ jobs:
             - name: Install dependencies
               run: npm install
 
+            - name: Debug Environment Variables
+              run: |
+                  echo "Checking environment variables..."
+                  echo "EMAILJS_SERVICE_ID=${{ secrets.EMAILJS_SERVICE_ID }}"
+                  echo "EMAILJS_TEMPLATE_ID=${{ secrets.EMAILJS_TEMPLATE_ID }}"
+                  echo "EMAILJS_PUBLIC_KEY=${{ secrets.EMAILJS_PUBLIC_KEY }}"
+                  echo "FEATURE_WORK_IN_PROGRESS=${{ vars.FEATURE_WORK_IN_PROGRESS }}"
+
+            - name: Set Environment Variables in Angular
+              run: |
+                  echo "export const environment = {
+                    production: true,
+                    emailjs: {
+                      serviceId: '${{secrets.EMAILJS_SERVICE_ID}}',
+                      templateId: '${{secrets.EMAILJS_TEMPLATE_ID}}',
+                      publicKey: '${{secrets.EMAILJS_PUBLIC_KEY}}'
+                    },
+                    features: {
+                      workInProgress: ${{ vars.FEATURE_WORK_IN_PROGRESS }}
+                    }
+                  };" > ./src/environments/environment.prod.ts
+                  echo "✅ Environment file created successfully!"
+
             - name: Build Angular app
               run: npm run build
 
