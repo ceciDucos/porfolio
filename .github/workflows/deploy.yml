@@ -30,11 +30,9 @@ jobs:
                   echo "EMAILJS_SERVICE_ID=${{ secrets.EMAILJS_SERVICE_ID }}"
                   echo "EMAILJS_TEMPLATE_ID=${{ secrets.EMAILJS_TEMPLATE_ID }}"
                   echo "EMAILJS_PUBLIC_KEY=${{ secrets.EMAILJS_PUBLIC_KEY }}"
-                  echo "FEATURE_WORK_IN_PROGRESS=${{ secrets.FEATURE_WORK_IN_PROGRESS }}"
+                  echo "FEATURE_WORK_IN_PROGRESS=${{ vars.FEATURE_WORK_IN_PROGRESS }}"
 
             - name: Set Environment Variables in Angular
-              env:
-                  FEATURE_WORK_IN_PROGRESS: ${{ vars.FEATURE_WORK_IN_PROGRESS }}
               run: |
                   echo "export const environment = {
                     production: true,
@@ -48,8 +46,6 @@ jobs:
                     }
                   };" > ./src/environments/environment.prod.ts
                   echo "✅ Environment file created successfully!"
-            - name: 📂 Show environment.prod.ts contents
-              run: cat ./src/environments/environment.prod.ts
 
             - name: Build Angular app
               run: npm run build
