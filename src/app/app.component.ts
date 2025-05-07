@@ -7,10 +7,9 @@ import { WorkInProgressComponent } from '../components/work-in-progress/work-in-
 
 @Component({
     selector: 'app-root',
-    standalone: true,
     imports: [RouterOutlet, CommonModule, WorkInProgressComponent],
     templateUrl: './app.component.html',
-    styleUrl: './app.component.scss',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent {
     title = 'porfolio';

@@ -7,11 +7,10 @@ import emailjs from '@emailjs/browser';
 import { environment } from '../../environments/environment';
 
 @Component({
-    standalone: true,
     imports: [CommonModule, TranslateModule, ReactiveFormsModule],
-    selector: 'home',
-    templateUrl: 'home.component.html',
-    styleUrls: ['home.component.scss'],
+    selector: 'landing',
+    templateUrl: 'landing.component.html',
+    styleUrls: ['landing.component.scss'],
     animations: [
         trigger('fadeInName', [
             transition(':enter', [style({ opacity: 0 }), animate('800ms ease-in', style({ opacity: 1 }))]),
@@ -30,7 +29,7 @@ import { environment } from '../../environments/environment';
         ]),
     ],
 })
-export class HomeComponent implements OnInit {
+export class LandingComponent implements OnInit {
     contactForm!: FormGroup;
     messageSent = false;
     errorMessage = '';
