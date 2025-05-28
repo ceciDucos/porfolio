@@ -11,6 +11,10 @@
         "description": "This page will be available soon. Stay tuned!"
     },
     "contact": {
-        "title": ["Connect", " with me"]
+        "title": ["Connect", " with me"],
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "placeholder": "Your message"
     }
 }

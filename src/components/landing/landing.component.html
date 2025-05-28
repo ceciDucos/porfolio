@@ -25,17 +25,21 @@
     <form class="contact__form" [formGroup]="contactForm" (ngSubmit)="sendEmail()">
         <div class="contact__form-row">
             <div class="contact__field">
-                <p class="contact__field-label">Name</p>
+                <p class="contact__field-label">{{ 'contact.name' | translate }}</p>
                 <input class="contact__field-input" type="text" formControlName="name" />
             </div>
             <div class="contact__field">
-                <p class="contact__field-label">Email</p>
+                <p class="contact__field-label">{{ 'contact.email' | translate }}</p>
                 <input class="contact__field-input" type="email" formControlName="email" />
             </div>
         </div>
         <div class="contact__field">
-            <p class="contact__field-label">Message</p>
-            <textarea class="contact__text-area" formControlName="message" placeholder="Your Message"></textarea>
+            <p class="contact__field-label">{{ 'contact.message' | translate }}</p>
+            <textarea
+                class="contact__text-area"
+                formControlName="message"
+                placeholder="{{ 'contact.placeholder' | translate }}"
+            ></textarea>
         </div>
         <button class="contact__send-btn" type="submit" [disabled]="contactForm.invalid || loading">
             {{ 'common.send' | translate }}

@@ -26,7 +26,7 @@
         cursor: pointer;
 
         img {
-            width: 45px;
+            width: 55px;
             height: auto;
         }
     }
@@ -128,26 +128,30 @@
         border: none;
         border-radius: 1.2rem;
         color: v.$white-color;
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         outline: none;
         height: 9rem;
+
+        &::placeholder {
+            color: v.$light-grey-color;
+            font-size: 1.4rem;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.05rem;
+            opacity: 1; // Ensure it’s visible (some browsers reduce opacity)
+            font-weight: 500;
+        }
     }
 
     &__send-btn {
-        font-size: 1.6rem;
+        width: 100%;
+        padding: 1rem;
+        font-size: 2rem;
         border: none;
+        background-color: v.$white-color;
+        color: v.$light-black-color;
         border-radius: 1rem;
+        font-weight: 700;
         cursor: pointer;
-        border: linear-gradient(to right, v.$red-color, v.$purple-color);
+        margin-top: 1rem;
     }
-}
-
-textarea::placeholder,
-input::placeholder {
-    color: v.$light-grey-color;
-    font-size: 1.4rem;
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 0.05rem;
-    opacity: 1; // Ensure it’s visible (some browsers reduce opacity)
-    font-weight: 500;
 }
