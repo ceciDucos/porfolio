@@ -1,6 +1,6 @@
 <div class="landing">
     <div class="landing__header">
-        <h2 class="landing__title">Landing Section Mobile</h2>
+        <h2 class="landing__title">Download cv</h2>
         <button class="landing__icon">
             <img src="icons/ham.svg" alt="Menu icon" />
         </button>
@@ -8,25 +8,33 @@
 
     <div class="landing__content">
         <img src="resources/cecilia.jpg" alt="Image of Cecilia Ducos" class="landing__avatar" />
-        <h1 class="landing__name">Cecilia Ducos</h1>
-        <p class="landing-section__subtitle">Certified Angular Developer</p>
+        <h1 class="landing__name">{{ 'header.name' | translate }}</h1>
+        <p class="landing__subtitle">{{ 'header.description' | translate }}</p>
     </div>
 </div>
 
 <div class="contact">
+    <div class="contact__row">
+        <p class="contact__title--blue">
+            {{ 'contact.title.0' | translate }}
+        </p>
+        <p class="contact__title">
+            {{ 'contact.title.1' | translate }}
+        </p>
+    </div>
     <form class="contact__form" [formGroup]="contactForm" (ngSubmit)="sendEmail()">
-        <div class="contact__row">
-            <div class="contact__column">
-                <p class="contact__label">Name</p>
-                <input class="contact__field" type="text" formControlName="name" />
+        <div class="contact__form-row">
+            <div class="contact__field">
+                <p class="contact__field-label">Name</p>
+                <input class="contact__field-input" type="text" formControlName="name" />
             </div>
-            <div class="contact__column">
-                <p class="contact__label">Email</p>
-                <input class="contact__field" type="email" formControlName="email" />
+            <div class="contact__field">
+                <p class="contact__field-label">Email</p>
+                <input class="contact__field-input" type="email" formControlName="email" />
             </div>
         </div>
-        <div class="contact__column">
-            <p class="contact__label">Message</p>
+        <div class="contact__field">
+            <p class="contact__field-label">Message</p>
             <textarea class="contact__text-area" formControlName="message" placeholder="Your Message"></textarea>
         </div>
         <button class="contact__send-btn" type="submit" [disabled]="contactForm.invalid || loading">
