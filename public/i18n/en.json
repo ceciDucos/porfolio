@@ -4,7 +4,8 @@
     },
     "header": {
         "name": "Cecilia Ducos",
-        "description": "Certified Angular Developer"
+        "description": "Certified Angular Developer",
+        "linkAria": "Opens Cecilia Ducos' Mid-Level Angular Certificate on a new tab"
     },
     "wip": {
         "title": "🚧 Work in Progress... 🚧",
@@ -16,5 +17,10 @@
         "email": "Email",
         "message": "Message",
         "placeholder": "Your message"
+    },
+    "footer": {
+        "label": "Site footer",
+        "linkAria": "Opens Delfina Grana's Behance profile in a new tab",
+        "text": ["© 2025 Cecilia Ducos", "Designed with 💙 by ", "Delfina Graña"]
     }
 }
