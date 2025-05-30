@@ -7,7 +7,7 @@
     </div>
 
     <div class="landing__content">
-        <img src="resources/cecilia.jpg" alt="Image of Cecilia Ducos" class="landing__avatar" />
+        <img src="resources/cecilia.jpg" alt="{{ 'header.imageDescription' | translate }}" class="landing__avatar" />
         <h1 class="landing__name">{{ 'header.name' | translate }}</h1>
         <a
             class="landing__subtitle"
@@ -41,8 +41,10 @@
                     type="text"
                     placeholder="{{ 'contact.nameExample' | translate }}"
                     formControlName="name"
+                    aria-describedby="name-error"
                 />
                 <p
+                    id="name-error"
                     class="contact__error-msg"
                     [class.visible]="
                     contactForm.get('name')?.errors?.['required'] &&
@@ -60,8 +62,10 @@
                     type="email"
                     placeholder="{{ 'contact.emailExample' | translate }}"
                     formControlName="email"
+                    aria-describedby="email-error"
                 />
                 <p
+                    id="email-error"
                     class="contact__error-msg"
                     [class.visible]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
                 >
@@ -81,8 +85,10 @@
                 class="contact__text-area"
                 formControlName="message"
                 placeholder="{{ 'contact.messageExample' | translate }}"
+                aria-describedby="message-error"
             ></textarea>
             <p
+                id="message-error"
                 class="contact__error-msg"
                 [class.visible]="contactForm.get('message')?.errors?.['required'] && contactForm.get('message')?.touched"
             >

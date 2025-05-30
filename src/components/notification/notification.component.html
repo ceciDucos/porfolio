@@ -1,0 +1,9 @@
+<div
+    *ngIf="notification"
+    class="notification"
+    [ngClass]="notification.type"
+    [attr.role]="notification.type === NotifType.Success ? 'status' : 'alert'"
+    [attr.aria-live]="notification.type === NotifType.Success ? 'polite' : 'assertive'"
+>
+    {{ notification.message }}
+</div>

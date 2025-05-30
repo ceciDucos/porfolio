@@ -8,26 +8,28 @@ import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, '/i18n/', '.json');
+    return new TranslateHttpLoader(http, '/i18n/', '.json');
 }
 
 import { routes } from './app.routes';
+import { NotificationService } from '../services/notification.service';
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),
-    provideClientHydration(),
-    provideHttpClient(),
-    importProvidersFrom([
-      BrowserAnimationsModule,
-      TranslateModule.forRoot({
-        loader: {
-          provide: TranslateLoader,
-          useFactory: createTranslateLoader,
-          deps: [HttpClient]
-        }
-      })
-    ])
-  ]
+    providers: [
+        provideZoneChangeDetection({ eventCoalescing: true }),
+        provideRouter(routes),
+        provideClientHydration(),
+        provideHttpClient(),
+        importProvidersFrom([
+            BrowserAnimationsModule,
+            TranslateModule.forRoot({
+                loader: {
+                    provide: TranslateLoader,
+                    useFactory: createTranslateLoader,
+                    deps: [HttpClient],
+                },
+            }),
+            NotificationService,
+        ]),
+    ],
 };

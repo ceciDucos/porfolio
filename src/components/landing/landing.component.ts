@@ -1,11 +1,12 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { environment } from '../../environments/environment';
 import { emailValidator } from '../../shared/custom-email.validator';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
     imports: [CommonModule, TranslateModule, ReactiveFormsModule],
@@ -36,7 +37,11 @@ export class LandingComponent implements OnInit {
     errorMessage = '';
     loading = false;
 
-    constructor(private fb: FormBuilder) {}
+    constructor(
+        private fb: FormBuilder,
+        private notificationService: NotificationService,
+        public translate: TranslateService
+    ) {}
 
     ngOnInit() {
         this.contactForm = this.fb.group({
@@ -65,11 +70,12 @@ export class LandingComponent implements OnInit {
                 environment.emailjs.publicKey
             )
             .then(() => {
-                // Reset form after successful submission
                 this.contactForm.reset();
                 console.log(this.contactForm.value);
+                this.notificationService.showSuccess(this.translate.instant('contact.successMessage'));
             })
             .catch((error) => {
+                this.notificationService.showError(this.translate.instant('contact.errorMessage'));
                 console.error(error);
             })
             .finally(() => {
