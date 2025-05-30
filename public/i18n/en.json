@@ -14,9 +14,15 @@
     "contact": {
         "title": ["Connect", " with me"],
         "name": "Name",
+        "nameExample": "Your name",
+        "nameRequired": "Name is required",
         "email": "Email",
+        "emailExample": "your@email.com",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Email is invalid",
         "message": "Message",
-        "placeholder": "Your message"
+        "messageExample": "Your message",
+        "messageRequired": "Message is required"
     },
     "footer": {
         "label": "Site footer",

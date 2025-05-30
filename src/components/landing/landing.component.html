@@ -33,23 +33,67 @@
     <form class="contact__form" [formGroup]="contactForm" (ngSubmit)="sendEmail()">
         <div class="contact__form-row">
             <div class="contact__field">
-                <p class="contact__field-label">{{ 'contact.name' | translate }}</p>
-                <input class="contact__field-input" type="text" formControlName="name" />
+                <label for="name" class="contact__field-label">{{ 'contact.name' | translate }}</label>
+                <input
+                    #name
+                    id="name"
+                    class="contact__field-input"
+                    type="text"
+                    placeholder="{{ 'contact.nameExample' | translate }}"
+                    formControlName="name"
+                />
+                <p
+                    class="contact__error-msg"
+                    [class.visible]="
+                    contactForm.get('name')?.errors?.['required'] &&
+                    contactForm.get('name')?.touched"
+                >
+                    {{ 'contact.nameRequired' | translate }}
+                </p>
             </div>
             <div class="contact__field">
-                <p class="contact__field-label">{{ 'contact.email' | translate }}</p>
-                <input class="contact__field-input" type="email" formControlName="email" />
+                <label for="email" class="contact__field-label">{{ 'contact.email' | translate }}</label>
+                <input
+                    #email
+                    id="email"
+                    class="contact__field-input"
+                    type="email"
+                    placeholder="{{ 'contact.emailExample' | translate }}"
+                    formControlName="email"
+                />
+                <p
+                    class="contact__error-msg"
+                    [class.visible]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+                >
+                    {{ 
+                        contactForm.get('email')?.errors?.['invalidEmail'] 
+                        ? ( 'contact.emailInvalid' | translate)
+                        : ( 'contact.emailRequired' | translate )
+                    }}
+                </p>
             </div>
         </div>
         <div class="contact__field">
-            <p class="contact__field-label">{{ 'contact.message' | translate }}</p>
+            <label for="message" class="contact__field-label">{{ 'contact.message' | translate }}</label>
             <textarea
+                #message
+                id="message"
                 class="contact__text-area"
                 formControlName="message"
-                placeholder="{{ 'contact.placeholder' | translate }}"
+                placeholder="{{ 'contact.messageExample' | translate }}"
             ></textarea>
+            <p
+                class="contact__error-msg"
+                [class.visible]="contactForm.get('message')?.errors?.['required'] && contactForm.get('message')?.touched"
+            >
+                {{ 'contact.messageRequired' | translate }}
+            </p>
         </div>
-        <button class="contact__send-btn" type="submit" [disabled]="contactForm.invalid || loading">
+        <button
+            class="contact__send-btn"
+            type="submit"
+            [disabled]="!name.value || !email.value || !message.value || !contactForm.valid || loading"
+        >
             {{ 'common.send' | translate }}
         </button>
     </form>

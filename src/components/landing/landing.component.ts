@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { environment } from '../../environments/environment';
+import { emailValidator } from '../../shared/custom-email.validator';
 
 @Component({
     imports: [CommonModule, TranslateModule, ReactiveFormsModule],
@@ -40,7 +41,7 @@ export class LandingComponent implements OnInit {
     ngOnInit() {
         this.contactForm = this.fb.group({
             name: ['', Validators.required],
-            email: ['', [Validators.required, Validators.email]],
+            email: ['', [Validators.required, emailValidator()]],
             message: ['', Validators.required],
         });
     }
@@ -66,6 +67,7 @@ export class LandingComponent implements OnInit {
             .then(() => {
                 // Reset form after successful submission
                 this.contactForm.reset();
+                console.log(this.contactForm.value);
             })
             .catch((error) => {
                 console.error(error);
