@@ -5,6 +5,7 @@
     "header": {
         "name": "Cecilia Ducos",
         "description": "Certified Angular Developer",
+        "imgDescription": "Cecilia Ducos' profile picture",
         "linkAria": "Opens Cecilia Ducos' Mid-Level Angular Certificate on a new tab"
     },
     "wip": {
@@ -22,7 +23,9 @@
         "emailInvalid": "Email is invalid",
         "message": "Message",
         "messageExample": "Your message",
-        "messageRequired": "Message is required"
+        "messageRequired": "Message is required",
+        "errorMessage": "There was an error sending your message. Please try again later.",
+        "successMessage": "Thank you for your message! I will get back to you soon."
     },
     "footer": {
         "label": "Site footer",
