@@ -1,6 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import emailjs from '@emailjs/browser';
@@ -33,9 +33,21 @@ import { NotificationService } from '../../services/notification.service';
 })
 export class LandingComponent implements OnInit {
     contactForm!: FormGroup;
-    messageSent = false;
-    errorMessage = '';
     loading = false;
+    isOpen = false;
+
+    @HostListener('document:keydown.escape', ['$event'])
+    handleEscape(event: KeyboardEvent): void {
+        this.closeMenu();
+    }
+
+    closeMenu() {
+        this.isOpen = false;
+    }
+
+    openMenu() {
+        this.isOpen = true;
+    }
 
     constructor(
         private fb: FormBuilder,

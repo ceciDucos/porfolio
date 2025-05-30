@@ -1,7 +1,31 @@
 <div class="landing">
     <div class="landing__header">
         <h2 class="landing__dwn-btn">Download cv</h2>
-        <button class="landing__icon">
+        <nav
+            id="desktop-menu"
+            class="landing__desktop-menu"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="desktop-menu-title"
+        >
+            <ul class="desktop-menu__list">
+                <li><a href="#skills" role="menuitem" tabindex="0">Skills</a></li>
+                <li><a href="#references" role="menuitem" tabindex="0">References</a></li>
+                <li><a href="#contact" role="menuitem" tabindex="0">Contact</a></li>
+                <li>
+                    <a
+                        href="/assets/CV.pdf"
+                        download
+                        role="menuitem"
+                        tabindex="0"
+                        aria-label="Download Curriculum Vitae"
+                    >
+                        Download C.V.
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <button (click)="openMenu()" class="landing__icon">
             <img src="icons/ham.svg" alt="Menu icon" />
         </button>
     </div>
@@ -19,10 +43,30 @@
             {{ 'header.description' | translate }}
         </a>
     </div>
+
+    <nav
+        *ngIf="isOpen"
+        id="mobile-menu"
+        class="landing__mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="mobile-menu-title"
+    >
+        <ul class="mobile-menu__list">
+            <li><a href="#skills" role="menuitem" tabindex="0">Skills</a></li>
+            <li><a href="#references" role="menuitem" tabindex="0">References</a></li>
+            <li><a href="#contact" role="menuitem" tabindex="0" (click)="closeMenu()">Contact</a></li>
+            <li>
+                <a href="/assets/CV.pdf" download role="menuitem" tabindex="0" aria-label="Download Curriculum Vitae">
+                    Download C.V.
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>
 
-<div class="contact">
-    <div class="contact__row">
+<section id="contact" class="contact">
+    <div id="contact-title" class="contact__row">
         <p class="contact__title--blue">
             {{ 'contact.title.0' | translate }}
         </p>
@@ -30,7 +74,7 @@
             {{ 'contact.title.1' | translate }}
         </p>
     </div>
-    <form class="contact__form" [formGroup]="contactForm" (ngSubmit)="sendEmail()">
+    <form id="contact-form" class="contact__form" [formGroup]="contactForm" (ngSubmit)="sendEmail()">
         <div class="contact__form-row">
             <div class="contact__field">
                 <label for="name" class="contact__field-label">{{ 'contact.name' | translate }}</label>
@@ -103,7 +147,7 @@
             {{ 'common.send' | translate }}
         </button>
     </form>
-</div>
+</section>
 
 <div class="footer" [attr.aria-label]="'footer.label' | translate">
     <div class="footer__text">

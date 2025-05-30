@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 describe('AppComponent', () => {
     const translateServiceMock = {
@@ -9,7 +9,7 @@ describe('AppComponent', () => {
     };
 
     TestBed.configureTestingModule({
-        imports: [AppComponent],
+        imports: [AppComponent, TranslateModule.forRoot()],
         providers: [{ provide: TranslateService, useValue: translateServiceMock }],
     });
 
