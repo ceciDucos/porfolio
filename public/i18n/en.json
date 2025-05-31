@@ -8,6 +8,14 @@
         "imgDescription": "Cecilia Ducos' profile picture",
         "linkAria": "Opens Cecilia Ducos' Mid-Level Angular Certificate on a new tab"
     },
+    "menu": {
+        "skills": "Skills",
+        "references": "References",
+        "contact": "Contact",
+        "downloadCV": "Download CV",
+        "downloadCVAria": "Download Cecilia Ducos' Curriculum Vitae in PDF format",
+        "hamAriaLabel": "Open mobile navigation menu"
+    },
     "wip": {
         "title": "🚧 Work in Progress... 🚧",
         "description": "This page will be available soon. Stay tuned!"

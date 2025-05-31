@@ -1,6 +1,5 @@
 <div class="landing">
     <div class="landing__header">
-        <h2 class="landing__dwn-btn">Download cv</h2>
         <nav
             id="desktop-menu"
             class="landing__desktop-menu"
@@ -9,24 +8,36 @@
             aria-labelledby="desktop-menu-title"
         >
             <ul class="desktop-menu__list">
-                <li><a href="#skills" role="menuitem" tabindex="0">Skills</a></li>
-                <li><a href="#references" role="menuitem" tabindex="0">References</a></li>
-                <li><a href="#contact" role="menuitem" tabindex="0">Contact</a></li>
+                <li>
+                    <a href="#skills" role="menuitem">{{ 'menu.skills' | translate }}</a>
+                </li>
+                <li>
+                    <a href="#references" role="menuitem">{{ 'menu.references' | translate }}</a>
+                </li>
+                <li>
+                    <a href="#contact" role="menuitem">{{ 'menu.contact' | translate }}</a>
+                </li>
                 <li>
                     <a
-                        href="/assets/CV.pdf"
-                        download
+                        href="cv/Cecilia_Ducos_CV.pdf"
+                        download="Cecilia_Ducos_CV.pdf"
                         role="menuitem"
-                        tabindex="0"
-                        aria-label="Download Curriculum Vitae"
+                        [attr.aria-label]="'menu.downloadCVAria' | translate"
                     >
-                        Download C.V.
+                        {{ 'menu.downloadCV' | translate }}
                     </a>
                 </li>
             </ul>
         </nav>
-        <button (click)="openMenu()" class="landing__icon">
-            <img src="icons/ham.svg" alt="Menu icon" />
+
+        <button
+            (click)="openMenu()"
+            class="landing__icon"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            [attr.aria-label]="'menu.hamAriaLabel' | translate"
+        >
+            <img src="icons/ham.svg" alt="Menu icon" role="presentation" />
         </button>
     </div>
 
@@ -50,15 +61,27 @@
         class="landing__mobile-menu"
         role="dialog"
         aria-modal="true"
+        [attr.aria-expanded]="isOpen"
         aria-labelledby="mobile-menu-title"
     >
-        <ul class="mobile-menu__list">
-            <li><a href="#skills" role="menuitem" tabindex="0">Skills</a></li>
-            <li><a href="#references" role="menuitem" tabindex="0">References</a></li>
-            <li><a href="#contact" role="menuitem" tabindex="0" (click)="closeMenu()">Contact</a></li>
+        <ul role="menu" class="mobile-menu__list">
             <li>
-                <a href="/assets/CV.pdf" download role="menuitem" tabindex="0" aria-label="Download Curriculum Vitae">
-                    Download C.V.
+                <a href="#skills" role="menuitem" (click)="closeMenu()">{{ 'menu.skills' | translate }}</a>
+            </li>
+            <li>
+                <a href="#references" role="menuitem" (click)="closeMenu()">{{ 'menu.references' | translate }}</a>
+            </li>
+            <li>
+                <a href="#contact" role="menuitem" (click)="closeMenu()">{{ 'menu.contact' | translate }}</a>
+            </li>
+            <li>
+                <a
+                    href="cv/Cecilia_Ducos_CV.pdf"
+                    download="Cecilia_Ducos_CV.pdf"
+                    role="menuitem"
+                    [attr.aria-label]="'menu.downloadCVAria' | translate"
+                >
+                    {{ 'menu.downloadCV' | translate }}
                 </a>
             </li>
         </ul>
