@@ -12,7 +12,9 @@
         "skills": "Skills",
         "references": "References",
         "contact": "Contact",
-        "downloadCV": "Download CV"
+        "downloadCV": "Download CV",
+        "downloadCVAria": "Download Cecilia Ducos' Curriculum Vitae in PDF format",
+        "hamAriaLabel": "Open mobile navigation menu"
     },
     "wip": {
         "title": "🚧 Work in Progress... 🚧",
