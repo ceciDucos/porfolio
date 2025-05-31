@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
@@ -9,7 +9,7 @@ import { emailValidator } from '../../shared/custom-email.validator';
 import { NotificationService } from '../../services/notification.service';
 
 @Component({
-    imports: [CommonModule, TranslateModule, ReactiveFormsModule],
+    imports: [CommonModule, TranslateModule, ReactiveFormsModule, NgOptimizedImage],
     selector: 'landing',
     templateUrl: 'landing.component.html',
     styleUrls: ['landing.component.scss'],
