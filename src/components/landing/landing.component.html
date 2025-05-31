@@ -34,21 +34,22 @@
             (click)="openMenu()"
             class="landing__icon"
             aria-controls="mobile-menu"
-            [attr.aria-expanded]="isOpen"
+            aria-expanded="false"
             [attr.aria-label]="'menu.hamAriaLabel' | translate"
         >
-            <img src="icons/ham.svg" alt="" role="presentation" />
+            <img src="icons/ham.svg" alt="Menu icon" role="presentation" />
         </button>
     </div>
 
     <div class="landing__content">
         <img
-            [ngSrc]="'assets/resources/cecilia.webp'"
-            width="200"
-            height="200"
-            loading="eager"
+            src="assets/resources/cecilia.webp"
             alt="{{ 'header.imageDescription' | translate }}"
             class="landing__avatar"
+            loading="eager"
+            width="200"
+            height="200"
+            decoding="async"
         />
         <h1 class="landing__name">{{ 'header.name' | translate }}</h1>
         <a
