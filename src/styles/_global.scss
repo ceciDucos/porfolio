@@ -1,0 +1,38 @@
+@use 'variables' as v;
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.d-flex {
+    display: flex;
+}
+
+html,
+body {
+    font-size: 62.5%;
+    font-family: 'Inter';
+    font-weight: 500;
+}
+
+@mixin app-container {
+    background-color: v.$light-black-color;
+    padding: 7rem 2rem 2rem;
+}
+
+@mixin common-title {
+    display: inline;
+    color: v.$white-color;
+}
+
+@mixin blue-title {
+    display: inline;
+    color: v.$blue-color;
+}
+
+@mixin app-row {
+    margin-bottom: 5.4rem;
+    font-weight: 700;
+    font-size: 3.4rem;
+}

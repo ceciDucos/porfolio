@@ -20,6 +20,9 @@
         "title": "🚧 Work in Progress... 🚧",
         "description": "This page will be available soon. Stay tuned!"
     },
+    "skills": {
+        "title": ["Skills", " to thrive in any market"]
+    },
     "contact": {
         "title": ["Connect", " with me"],
         "name": "Name",
