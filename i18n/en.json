@@ -21,7 +21,37 @@
         "description": "This page will be available soon. Stay tuned!"
     },
     "skills": {
-        "title": ["Skills", " to thrive in any market"]
+        "title": ["Skills", " to thrive in any market"],
+        "dev": {
+            "title": "UI Development",
+            "description": [
+                "Responsive and accessible web apps built with ",
+                "Angular",
+                " and ",
+                "SCSS",
+                ", faithfully implementing ",
+                "Figma",
+                " designs and leveraging the latest Angular features."
+            ]
+        },
+        "testing": {
+            "title": "Testing",
+            "description": [
+                "Experienced in writing unit and integration tests with Jasmine and Karma, and running end-to-end tests using Selenium, aiming for high code coverage and solid application stability."
+            ]
+        },
+        "devops": {
+            "title": "CI/CD & DevOps",
+            "description": [
+                "CI/CD automation with GitHub Actions, CircleCI, Jenkins, and Octopus, plus domain and DNS setup with tools like GoDaddy for production-ready deployments."
+            ]
+        },
+        "performance": {
+            "title": "Auth & Performance",
+            "description": [
+                "Token-based authentication using OKTA and JWT, with performance optimization through techniques like Signals, lazy loading, and RxJS operators"
+            ]
+        }
     },
     "contact": {
         "title": ["Connect", " with me"],
