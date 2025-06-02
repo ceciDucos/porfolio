@@ -1,15 +1,11 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import emailjs from '@emailjs/browser';
-import { environment } from '../../environments/environment';
-import { emailValidator } from '../../shared/custom-email.validator';
-import { NotificationService } from '../../services/notification.service';
+import { ContactComponent } from '../contact/contact.component';
 
 @Component({
-    imports: [CommonModule, TranslateModule, ReactiveFormsModule],
+    imports: [CommonModule, TranslateModule, ContactComponent],
     selector: 'landing',
     templateUrl: 'landing.component.html',
     styleUrls: ['landing.component.scss'],
@@ -31,9 +27,7 @@ import { NotificationService } from '../../services/notification.service';
         ]),
     ],
 })
-export class LandingComponent implements OnInit {
-    contactForm!: FormGroup;
-    loading = false;
+export class LandingComponent {
     isOpen = false;
 
     @HostListener('document:keydown.escape', ['$event'])
@@ -49,49 +43,5 @@ export class LandingComponent implements OnInit {
         this.isOpen = true;
     }
 
-    constructor(
-        private fb: FormBuilder,
-        private notificationService: NotificationService,
-        public translate: TranslateService
-    ) {}
-
-    ngOnInit() {
-        this.contactForm = this.fb.group({
-            name: ['', Validators.required],
-            email: ['', [Validators.required, emailValidator()]],
-            message: ['', Validators.required],
-        });
-    }
-
-    sendEmail() {
-        if (this.loading) {
-            return;
-        }
-
-        this.loading = true;
-        const objEmailJS = {
-            from_name: this.contactForm.value.name,
-            reply_to: this.contactForm.value.email,
-            message: this.contactForm.value.message,
-        };
-        emailjs
-            .send(
-                environment.emailjs.serviceId,
-                environment.emailjs.templateId,
-                objEmailJS,
-                environment.emailjs.publicKey
-            )
-            .then(() => {
-                this.contactForm.reset();
-                console.log(this.contactForm.value);
-                this.notificationService.showSuccess(this.translate.instant('contact.successMessage'));
-            })
-            .catch((error) => {
-                this.notificationService.showError(this.translate.instant('contact.errorMessage'));
-                console.error(error);
-            })
-            .finally(() => {
-                this.loading = false;
-            });
-    }
+    constructor(public translate: TranslateService) {}
 }
