@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ContactComponent } from '../contact/contact.component';
+import { SkillsComponent } from '../skills/skills.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
-    imports: [CommonModule, TranslateModule, ContactComponent],
+    imports: [CommonModule, TranslateModule, ContactComponent, SkillsComponent, FooterComponent],
     selector: 'landing',
     templateUrl: 'landing.component.html',
     styleUrls: ['landing.component.scss'],
@@ -35,6 +37,8 @@ export class LandingComponent {
         this.closeMenu();
     }
 
+    constructor(public translate: TranslateService) {}
+
     closeMenu() {
         this.isOpen = false;
     }
@@ -42,6 +46,4 @@ export class LandingComponent {
     openMenu() {
         this.isOpen = true;
     }
-
-    constructor(public translate: TranslateService) {}
 }
