@@ -5,9 +5,10 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ContactComponent } from '../contact/contact.component';
 import { SkillsComponent } from '../skills/skills.component';
 import { FooterComponent } from '../footer/footer.component';
+import { ReferencesComponent } from '../references/references.component';
 
 @Component({
-    imports: [CommonModule, TranslateModule, ContactComponent, SkillsComponent, FooterComponent],
+    imports: [CommonModule, TranslateModule, ContactComponent, SkillsComponent, FooterComponent, ReferencesComponent],
     selector: 'landing',
     templateUrl: 'landing.component.html',
     styleUrls: ['landing.component.scss'],
