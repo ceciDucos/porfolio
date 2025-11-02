@@ -4,12 +4,13 @@
     },
     "header": {
         "name": "Cecilia Ducos",
-        "description": "Certified Angular Developer",
+        "description": "Angular Developer",
         "imgDescription": "Cecilia Ducos' profile picture",
         "linkAria": "Opens Cecilia Ducos' Mid-Level Angular Certificate on a new tab"
     },
     "menu": {
         "skills": "Skills",
+        "projects": "Projects",
         "references": "References",
         "contact": "Contact",
         "downloadCV": "Download CV",
@@ -59,18 +60,42 @@
             ]
         },
         "auth": {
-            "title": "Auth & Performance",
+            "title": "Auth & Optimization",
             "description": [
                 "Token-based authentication using ",
                 "OKTA",
                 " and ",
                 "JWT,",
-                " with performance optimization through techniques like ",
+                " with modern techniques like ",
                 "Signals, lazy loading",
                 " and ",
                 "RxJS",
                 " operators."
             ]
+        }
+    },
+    "projects": {
+        "title": "Featured",
+        "subtitle": "Projects",
+        "filters": {
+            "all": "All"
+        },
+        "demo": "Live Demo",
+        "code": "View Code",
+        "viewDemo": "View live demo of project",
+        "viewCode": "View source code on GitHub",
+        "noResults": "No projects found with the selected filter",
+        "portfolio": {
+            "title": "Personal Portfolio",
+            "description": "A modern portfolio built with Angular 20, featuring responsive design and accessibility."
+        },
+        "basingScribes": {
+            "title": "BaSing Scribes",
+            "description": "A book management application built with React and TypeScript. Features include adding, editing, and deleting books with a clean, intuitive interface."
+        },
+        "authDemo": {
+            "title": "Secure Authentication App",
+            "description": "Authentication system with JWT tokens, route guards, HTTP interceptors, and persistent login. Built with Angular 20 and modern security practices."
         }
     },
     "references": {

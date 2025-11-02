@@ -6,9 +6,18 @@ import { ContactComponent } from '../contact/contact.component';
 import { SkillsComponent } from '../skills/skills.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ReferencesComponent } from '../references/references.component';
+import { ProjectsComponent } from '../projects/projects.component';
 
 @Component({
-    imports: [CommonModule, TranslateModule, ContactComponent, SkillsComponent, FooterComponent, ReferencesComponent],
+    imports: [
+        CommonModule,
+        TranslateModule,
+        ContactComponent,
+        SkillsComponent,
+        FooterComponent,
+        ReferencesComponent,
+        ProjectsComponent,
+    ],
     selector: 'landing',
     templateUrl: 'landing.component.html',
     styleUrls: ['landing.component.scss'],

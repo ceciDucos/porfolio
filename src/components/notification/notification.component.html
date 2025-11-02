@@ -1,5 +1,5 @@
+@if(notification) {
 <div
-    *ngIf="notification"
     class="notification"
     [ngClass]="notification.type"
     [attr.role]="notification.type === NotifType.Success ? 'status' : 'alert'"
@@ -7,3 +7,4 @@
 >
     {{ notification.message }}
 </div>
+}

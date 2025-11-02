@@ -7,7 +7,7 @@ $large-desktop: 1440px; // Large screens
 // Font
 $main-font: 'Inter', sans-serif;
 
-// Colors
+// Color Palette
 $black-color: #000000;
 $grey-color: #2b2b2e;
 $light-grey-color: #888;
@@ -21,3 +21,16 @@ $green-color: #28c76f;
 // Background colors
 $white-color: #ffffff;
 $light-black-color: #1a1a1a;
+
+// Semantic colors
+$color-primary: $blue-color;
+$color-secondary: $purple-color;
+$color-success: $green-color;
+$color-error: $red-color;
+$color-warning: $warning-red;
+
+// Text colors
+$text-primary: $black-color;
+$text-secondary: $grey-color;
+$text-muted: $light-grey-color;
+$text-inverse: $white-color;

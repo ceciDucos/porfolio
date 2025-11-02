@@ -1,5 +1,6 @@
-<app-work-in-progress *ngIf="isWorkInProgress"></app-work-in-progress>
-<ng-container *ngIf="!isWorkInProgress">
-    <app-notification />
-    <router-outlet></router-outlet>
-</ng-container>
+@if (isWorkInProgress) {
+<app-work-in-progress></app-work-in-progress>
+} @else {
+<app-notification />
+<router-outlet></router-outlet>
+}

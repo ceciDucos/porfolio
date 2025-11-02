@@ -12,6 +12,9 @@
                     <a href="#skills" role="menuitem">{{ 'menu.skills' | translate }}</a>
                 </li>
                 <li>
+                    <a href="#projects" role="menuitem">{{ 'menu.projects' | translate }}</a>
+                </li>
+                <li>
                     <a href="#references" role="menuitem">{{ 'menu.references' | translate }}</a>
                 </li>
                 <li>
@@ -47,24 +50,17 @@
             alt="{{ 'header.imageDescription' | translate }}"
             class="landing__avatar"
             loading="eager"
+            fetchpriority="high"
             width="200"
             height="200"
-            decoding="async"
         />
         <h1 class="landing__name">{{ 'header.name' | translate }}</h1>
-        <a
-            class="landing__subtitle"
-            href="https://certificates.dev/angular/certificates/9ead0045-8498-4f7e-b57e-b74b2292f392"
-            target="_blank"
-            [attr.aria-label]="'header.linkAria' | translate"
-            rel="noopener noreferrer"
-        >
+        <p class="landing__subtitle">
             {{ 'header.description' | translate }}
-        </a>
+        </p>
     </div>
-
+    @if(isOpen) {
     <nav
-        *ngIf="isOpen"
         id="mobile-menu"
         class="landing__mobile-menu-nav"
         role="dialog"
@@ -75,6 +71,9 @@
         <ul role="menu" class="landing__mobile-menu-list">
             <li class="landing__mobile-menu-item">
                 <a href="#skills" role="menuitem" (click)="closeMenu()">{{ 'menu.skills' | translate }}</a>
+            </li>
+            <li class="landing__mobile-menu-item">
+                <a href="#projects" role="menuitem" (click)="closeMenu()">{{ 'menu.projects' | translate }}</a>
             </li>
             <li class="landing__mobile-menu-item">
                 <a href="#references" role="menuitem" (click)="closeMenu()">{{ 'menu.references' | translate }}</a>
@@ -94,9 +93,11 @@
             </li>
         </ul>
     </nav>
+    }
 </div>
 
 <rd-skills />
+<rd-projects />
 <rd-references />
 <rd-contact />
 <rd-footer />

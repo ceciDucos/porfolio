@@ -1,0 +1,245 @@
+@use '../../styles/index' as *;
+
+.projects {
+    @include app-container;
+    min-height: 100vh;
+
+    &__container {
+        max-width: $container-xl;
+        margin: 0 auto;
+    }
+
+    &__header {
+        margin-bottom: $spacing-3xl;
+        text-align: center;
+    }
+
+    &__title {
+        @include app-row;
+        display: block;
+
+        &--primary {
+            @include common-title;
+        }
+
+        &--accent {
+            @include blue-title;
+            margin-left: $spacing-md;
+        }
+    }
+
+    &__filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-md;
+        justify-content: center;
+        margin-bottom: $spacing-3xl;
+    }
+
+    &__filter-btn {
+        background: transparent;
+        border: 2px solid rgba($blue-color, 0.3);
+        color: $white-color;
+        padding: $spacing-sm $spacing-lg;
+        border-radius: $radius-full;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        cursor: pointer;
+        transition: all $transition-base;
+        font-family: $main-font;
+
+        &:hover {
+            border-color: $blue-color;
+            background: rgba($blue-color, 0.1);
+            transform: translateY(-2px);
+        }
+
+        &--active {
+            background: $blue-color;
+            border-color: $blue-color;
+            box-shadow: 0 0 20px rgba($blue-color, 0.4);
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: $spacing-2xl;
+        margin-bottom: $spacing-3xl;
+
+        @media (min-width: $tablet) {
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
+    }
+
+    &__empty {
+        text-align: center;
+        padding: $spacing-3xl;
+        color: $light-grey-color;
+        font-size: $font-size-lg;
+    }
+}
+
+.project-card {
+    background: rgba($grey-color, 0.3);
+    border-radius: $radius-xl;
+    overflow: hidden;
+    transition: all $transition-base;
+    border: 1px solid transparent;
+
+    &:hover {
+        transform: translateY(-8px);
+        border-color: rgba($blue-color, 0.5);
+        box-shadow: 0 25px 50px -12px rgba($black-color, 0.25), 0 0 30px rgba($blue-color, 0.2);
+
+        .project-card__overlay {
+            opacity: 1;
+        }
+
+        .project-card__image {
+            transform: scale(1.05);
+        }
+    }
+
+    &--featured {
+        border-color: rgba($purple-color, 0.5);
+
+        &:hover {
+            border-color: $purple-color;
+            box-shadow: 0 25px 50px -12px rgba($black-color, 0.25), 0 0 30px rgba($purple-color, 0.3);
+        }
+    }
+
+    &__image-wrapper {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 16 / 9;
+        background: linear-gradient(135deg, rgba($blue-color, 0.3) 0%, rgba($purple-color, 0.3) 100%);
+    }
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform $transition-slow;
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba($black-color, 0.85);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity $transition-base;
+    }
+
+    &__btn {
+        display: inline-flex;
+        align-items: center;
+        gap: $spacing-sm;
+        padding: $spacing-sm $spacing-lg;
+        border-radius: $radius-md;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semibold;
+        text-decoration: none;
+        transition: all $transition-base;
+        font-family: $main-font;
+
+        &--demo {
+            background: $blue-color;
+            color: $white-color;
+
+            &:hover {
+                background: $blue-color;
+                transform: scale(1.05);
+            }
+        }
+
+        &--github {
+            background: $white-color;
+            color: $black-color;
+
+            &:hover {
+                background: $white-color;
+                transform: scale(1.05);
+            }
+        }
+
+        svg {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
+    &__content {
+        padding: $spacing-xl;
+
+        @media (min-width: $desktop) {
+            padding: $spacing-2xl;
+        }
+    }
+
+    &__title {
+        color: $white-color;
+        font-size: $font-size-2xl;
+        font-weight: $font-weight-bold;
+        margin: 0 0 $spacing-lg;
+        line-height: $line-height-tight;
+
+        @media (min-width: $desktop) {
+            font-size: $font-size-3xl;
+        }
+    }
+
+    &__description {
+        color: $light-grey-color;
+        font-size: $font-size-lg;
+        line-height: $line-height-relaxed;
+        margin: 0 0 $spacing-xl;
+
+        @media (min-width: $desktop) {
+            font-size: $font-size-lg;
+            margin-bottom: $spacing-xl;
+        }
+    }
+
+    &__technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-sm;
+    }
+
+    &__tech-tag {
+        background: rgba($blue-color, 0.15);
+        color: $blue-color;
+        padding: $spacing-xs $spacing-sm;
+        border-radius: $radius-sm;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-medium;
+        border: 1px solid rgba($blue-color, 0.3);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card {
+    animation: slideInUp $transition-slow ease-out;
+    animation-fill-mode: both;
+
+    @for $i from 1 through 9 {
+        &:nth-child(#{$i}) {
+            animation-delay: #{$i * 0.1}s;
+        }
+    }
+}

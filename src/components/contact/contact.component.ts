@@ -51,12 +51,10 @@ export class ContactComponent implements OnInit {
             )
             .then(() => {
                 this.contactForm.reset();
-                console.log(this.contactForm.value);
                 this.notificationService.showSuccess(this.translate.instant('contact.successMessage'));
             })
-            .catch((error) => {
+            .catch(() => {
                 this.notificationService.showError(this.translate.instant('contact.errorMessage'));
-                console.error(error);
             })
             .finally(() => {
                 this.loading = false;
