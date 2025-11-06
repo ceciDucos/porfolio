@@ -24,11 +24,20 @@ export class ProjectsComponent {
 
     projects: Project[] = [
         {
+            id: 'task-flow',
+            title: 'projects.taskFlow.title',
+            description: 'projects.taskFlow.description',
+            technologies: ['Angular', 'TypeScript', 'NgRx', 'Angular Material', 'Signals'],
+            image: 'projects/task-flow-ngrx-app.png',
+            githubUrl: 'https://github.com/ceciDucos/task-flow-ngrx',
+            featured: true,
+        },
+        {
             id: 'auth-demo',
             title: 'projects.authDemo.title',
             description: 'projects.authDemo.description',
             technologies: ['Angular', 'TypeScript', 'JWT', 'RxJS', 'Signals'],
-            image: 'assets/projects/auth-demo-app-1.png',
+            image: 'projects/auth-demo-app-1.png',
             githubUrl: 'https://github.com/ceciDucos/auth-demo-app',
             featured: true,
         },
@@ -36,8 +45,8 @@ export class ProjectsComponent {
             id: 'basing-scribes',
             title: 'projects.basingScribes.title',
             description: 'projects.basingScribes.description',
-            technologies: ['React', 'TypeScript', 'CSS', 'Vite'],
-            image: 'assets/projects/basing-scribes.png',
+            technologies: ['React', 'JavaScript', 'CSS'],
+            image: 'projects/ba-sing-scribes-app.png',
             githubUrl: 'https://github.com/ceciDucos/BaSingScribesReact',
             featured: true,
         },

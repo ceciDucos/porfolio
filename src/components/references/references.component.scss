@@ -25,7 +25,7 @@
             font-size: 1.6rem;
             outline: none;
             text-align: center;
-            padding: 4rem 1.5rem;
+            padding: 4rem 2rem;
 
             &:not(:last-of-type) {
                 margin-bottom: 3rem;
@@ -34,15 +34,17 @@
 
         &-title {
             color: v.$blue-color;
-            font-size: 2.4rem;
+            font-size: 2rem;
             margin-bottom: 1.2rem;
             font-weight: 600;
         }
 
         &-description {
-            font-weight: 300;
-            font-size: 2.1rem;
-            line-height: 34px;
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 1.75;
+            text-align: justify;
+            color: #888;
         }
 
         &-bold-text {

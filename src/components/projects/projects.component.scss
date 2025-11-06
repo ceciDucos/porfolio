@@ -37,16 +37,15 @@
     }
 
     &__filter-btn {
+        font-family: $main-font;
         background: transparent;
         border: 2px solid rgba($blue-color, 0.3);
         color: $white-color;
         padding: $spacing-sm $spacing-lg;
-        border-radius: $radius-full;
-        font-size: $font-size-sm;
+        border-radius: 13px;
+        font-size: 1.3rem;
         font-weight: $font-weight-medium;
         cursor: pointer;
-        transition: all $transition-base;
-        font-family: $main-font;
 
         &:hover {
             border-color: $blue-color;
@@ -57,18 +56,22 @@
         &--active {
             background: $blue-color;
             border-color: $blue-color;
-            box-shadow: 0 0 20px rgba($blue-color, 0.4);
         }
     }
 
     &__grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: $spacing-2xl;
         margin-bottom: $spacing-3xl;
 
         @media (min-width: $tablet) {
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: $spacing-3xl;
+        }
+
+        @media (min-width: $desktop) {
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
         }
     }
 
@@ -81,32 +84,36 @@
 }
 
 .project-card {
-    background: rgba($grey-color, 0.3);
+    background: rgba($grey-color, 0.15);
     border-radius: $radius-xl;
     overflow: hidden;
     transition: all $transition-base;
-    border: 1px solid transparent;
+    border: 1px solid rgba($white-color, 0.08);
+    box-shadow: 0 4px 6px rgba($black-color, 0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 
     &:hover {
         transform: translateY(-8px);
-        border-color: rgba($blue-color, 0.5);
-        box-shadow: 0 25px 50px -12px rgba($black-color, 0.25), 0 0 30px rgba($blue-color, 0.2);
+        border-color: rgba($blue-color, 0.6);
+        box-shadow: 0 20px 40px rgba($black-color, 0.3), 0 0 30px rgba($blue-color, 0.2);
 
         .project-card__overlay {
             opacity: 1;
         }
 
         .project-card__image {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
     }
 
     &--featured {
-        border-color: rgba($purple-color, 0.5);
+        border-color: rgba($blue-color, 0.3);
 
         &:hover {
-            border-color: $purple-color;
-            box-shadow: 0 25px 50px -12px rgba($black-color, 0.25), 0 0 30px rgba($purple-color, 0.3);
+            border-color: rgba($blue-color, 0.8);
+            box-shadow: 0 20px 40px rgba($black-color, 0.3), 0 0 40px rgba($blue-color, 0.25);
         }
     }
 
@@ -114,49 +121,61 @@
         position: relative;
         overflow: hidden;
         aspect-ratio: 16 / 9;
-        background: linear-gradient(135deg, rgba($blue-color, 0.3) 0%, rgba($purple-color, 0.3) 100%);
+        background: linear-gradient(135deg, rgba($black-color, 0.8) 0%, rgba($grey-color, 0.6) 100%);
     }
 
     &__image {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: top;
         transition: transform $transition-slow;
     }
 
     &__overlay {
         position: absolute;
         inset: 0;
-        background: rgba($black-color, 0.85);
+        background: linear-gradient(to bottom, rgba($black-color, 0.5), rgba($black-color, 0.9));
         display: flex;
         align-items: center;
         justify-content: center;
         opacity: 0;
         transition: opacity $transition-base;
+        backdrop-filter: blur(4px);
     }
 
     &__btn {
         display: inline-flex;
         align-items: center;
         gap: $spacing-sm;
-        padding: $spacing-sm $spacing-lg;
+        padding: $spacing-md $spacing-xl;
         border-radius: $radius-md;
-        font-size: $font-size-sm;
+        font-size: $font-size-base;
         font-weight: $font-weight-semibold;
         text-decoration: none;
         transition: all $transition-base;
         font-family: $main-font;
-        background: $white-color;
-        color: $black-color;
+        background: $blue-color;
+        color: $white-color;
+        box-shadow: 0 4px 12px rgba($blue-color, 0.3);
+
+        &:hover {
+            background: rgba($blue-color, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba($blue-color, 0.4);
+        }
 
         svg {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
         }
     }
 
     &__content {
         padding: $spacing-xl;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
 
         @media (min-width: $desktop) {
             padding: $spacing-2xl;
@@ -165,36 +184,49 @@
 
     &__title {
         color: $white-color;
-        font-size: $font-size-2xl;
-        font-weight: $font-weight-bold;
-        margin: 0 0 $spacing-lg;
+        font-size: 1.7rem;
+        font-weight: 600;
+        margin: 0 0 $spacing-md;
         line-height: $line-height-tight;
 
         @media (min-width: $desktop) {
-            font-size: $font-size-3xl;
+            font-size: $font-size-2xl;
         }
     }
 
     &__description {
         color: $light-grey-color;
-        font-size: $font-size-lg;
+        font-size: 1.4rem;
+        font-weight: 400;
         line-height: $line-height-relaxed;
         margin: 0 0 $spacing-xl;
+        flex: 1;
+
+        @media (min-width: $desktop) {
+            font-size: $font-size-lg;
+        }
     }
 
     &__technologies {
         display: flex;
         flex-wrap: wrap;
-        gap: $spacing-sm;
+        gap: 0.8rem;
+        margin-top: auto;
     }
 
     &__tech-tag {
-        background: rgba($blue-color, 0.15);
+        background: rgba($blue-color, 0.1);
         color: $blue-color;
-        padding: $spacing-xs $spacing-sm;
-        border-radius: $radius-sm;
-        font-size: $font-size-xs;
-        font-weight: $font-weight-medium;
+        padding: 0.45rem 1.1rem;
+        border-radius: $radius-md;
+        font-size: 1.25rem;
+        font-weight: 400;
         border: 1px solid rgba($blue-color, 0.3);
+        transition: all $transition-base;
+
+        &:hover {
+            background: rgba($blue-color, 0.2);
+            border-color: rgba($blue-color, 0.5);
+        }
     }
 }
