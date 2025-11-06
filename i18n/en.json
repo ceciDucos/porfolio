@@ -4,7 +4,7 @@
     },
     "header": {
         "name": "Cecilia Ducos",
-        "description": "Angular Developer",
+        "description": "Font-end Developer",
         "imgDescription": "Cecilia Ducos' profile picture",
         "linkAria": "Opens Cecilia Ducos' Mid-Level Angular Certificate on a new tab"
     },
@@ -96,6 +96,10 @@
         "authDemo": {
             "title": "Secure Authentication App",
             "description": "Authentication system with JWT tokens, route guards, HTTP interceptors, and persistent login. Built with Angular 20 and modern security practices."
+        },
+        "taskFlow": {
+            "title": "Task Flow - NgRx",
+            "description": "Task management application built with Angular and NgRx for state management. Features include task creation, updates, filtering, and reactive state handling."
         }
     },
     "references": {
