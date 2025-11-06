@@ -3,52 +3,134 @@
 
 .references {
     @include app-container;
+    min-height: 100vh;
+    padding: $spacing-3xl $spacing-lg $spacing-3xl;
 
     &__row {
-        @include app-row;
+        margin-bottom: $spacing-3xl;
+        text-align: center;
     }
 
     &__title {
+        display: inline;
+        margin: 0;
         @include common-title;
 
         &--blue {
             @include blue-title;
+            margin-right: $spacing-md;
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: $spacing-3xl;
+        max-width: 960px;
+        margin: 0 auto;
+        padding-bottom: $spacing-xl;
+
+        @media (min-width: $tablet) {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: $spacing-3xl;
+            max-width: $container-xl;
         }
     }
 
     &__card {
         &-container {
-            background-color: v.$grey-color;
-            border: none;
-            border-radius: 1.2rem;
-            color: v.$white-color;
-            font-size: 1.6rem;
-            outline: none;
-            text-align: center;
-            padding: 4rem 2rem;
+            background: linear-gradient(180deg, rgba($grey-color, 0.25) 0%, rgba($grey-color, 0.18) 100%);
+            border: 1px solid rgba($blue-color, 0.25);
+            border-radius: $radius-xl;
+            color: $white-color;
+            padding: $spacing-2xl $spacing-xl $spacing-2xl;
+            text-align: left;
+            transition: border-color $transition-fast, box-shadow $transition-base, transform $transition-fast,
+                background $transition-fast;
+            box-shadow: 0 6px 14px rgba($black-color, 0.25);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
 
-            &:not(:last-of-type) {
-                margin-bottom: 3rem;
+            &::before {
+                content: '“';
+                position: absolute;
+                top: $spacing-md;
+                left: $spacing-md;
+                font-size: 3.6rem;
+                color: rgba($blue-color, 0.15);
+                font-family: Georgia, serif;
+                line-height: 1;
+                pointer-events: none;
+                z-index: 0;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(circle at 15% 15%, rgba($blue-color, 0.18), transparent 60%);
+                opacity: 0;
+                transition: opacity $transition-fast;
+                z-index: 0;
+            }
+
+            > * {
+                position: relative;
+                z-index: 1;
+            }
+
+            &:hover {
+                transform: translateY(-6px);
+                border-color: rgba($blue-color, 0.6);
+                box-shadow: 0 16px 30px rgba($black-color, 0.35), 0 0 24px rgba($blue-color, 0.25);
+                background: linear-gradient(180deg, rgba($grey-color, 0.3) 0%, rgba($grey-color, 0.22) 100%);
+                &::after {
+                    opacity: 1;
+                }
+            }
+
+            @media (min-width: $desktop) {
+                padding: $spacing-3xl $spacing-2xl $spacing-3xl;
             }
         }
 
         &-title {
-            color: v.$blue-color;
-            font-size: 2rem;
-            margin-bottom: 1.2rem;
-            font-weight: 600;
+            color: $blue-color;
+            font-size: $font-size-xl;
+            margin: 0 0 $spacing-md;
+            font-weight: $font-weight-semibold;
+            line-height: $line-height-tight;
+            letter-spacing: 0.5px;
+            @media (min-width: $tablet) {
+                font-size: $font-size-2xl;
+            }
+            @media (min-width: $desktop) {
+                font-size: $font-size-3xl;
+            }
         }
 
         &-description {
-            font-size: 1.4rem;
-            font-weight: 400;
-            line-height: 1.75;
-            text-align: justify;
-            color: #888;
+            font-size: $font-size-base;
+            font-weight: $font-weight-regular;
+            line-height: $line-height-relaxed;
+            color: $light-grey-color;
+            margin: 0;
+            flex: 1;
+            @media (min-width: $tablet) {
+                font-size: $font-size-lg;
+            }
+            @media (min-width: $desktop) {
+                font-size: $font-size-xl;
+            }
         }
 
         &-bold-text {
-            font-weight: 600;
+            font-weight: $font-weight-semibold;
+            color: $white-color;
         }
     }
 }

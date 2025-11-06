@@ -9,15 +9,7 @@ import { ReferencesComponent } from '../references/references.component';
 import { ProjectsComponent } from '../projects/projects.component';
 
 @Component({
-    imports: [
-        CommonModule,
-        TranslateModule,
-        ContactComponent,
-        SkillsComponent,
-        FooterComponent,
-        ReferencesComponent,
-        ProjectsComponent,
-    ],
+    imports: [CommonModule, TranslateModule, ContactComponent, FooterComponent, ReferencesComponent, ProjectsComponent],
     selector: 'landing',
     templateUrl: 'landing.component.html',
     styleUrls: ['landing.component.scss'],

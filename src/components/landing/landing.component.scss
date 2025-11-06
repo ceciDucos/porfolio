@@ -57,9 +57,10 @@
         margin-top: 3rem;
         font-size: 3.9rem;
         font-weight: bold;
-        background: linear-gradient(to right, v.$red-color, v.$purple-color);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: v.$blue-color;
+        // background: linear-gradient(to right, v.$red-color, v.$purple-color);
+        // -webkit-background-clip: text;
+        // -webkit-text-fill-color: transparent;
     }
 
     &__subtitle {
