@@ -1,13 +1,14 @@
 @use 'variables' as v;
+@use 'tokens' as t;
 @use 'global' as *;
 
 .references {
     @include app-container;
     min-height: 100vh;
-    padding: $spacing-3xl $spacing-lg $spacing-3xl;
+    padding: t.$spacing-3xl t.$spacing-lg t.$spacing-3xl;
 
     &__row {
-        margin-bottom: $spacing-3xl;
+        margin-bottom: t.$spacing-3xl;
         text-align: center;
     }
 
@@ -18,7 +19,7 @@
 
         &--blue {
             @include blue-title;
-            margin-right: $spacing-md;
+            margin-right: t.$spacing-md;
         }
     }
 
@@ -26,29 +27,29 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-auto-rows: auto;
-        gap: $spacing-3xl;
+        gap: t.$spacing-3xl;
         max-width: 960px;
         margin: 0 auto;
-        padding-bottom: $spacing-xl;
+        padding-bottom: t.$spacing-xl;
 
-        @media (min-width: $tablet) {
+        @media (min-width: v.$tablet) {
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: $spacing-3xl;
-            max-width: $container-xl;
+            gap: t.$spacing-3xl;
+            max-width: t.$container-xl;
         }
     }
 
     &__card {
         &-container {
-            background: linear-gradient(180deg, rgba($grey-color, 0.25) 0%, rgba($grey-color, 0.18) 100%);
-            border: 1px solid rgba($blue-color, 0.25);
-            border-radius: $radius-xl;
-            color: $white-color;
-            padding: $spacing-2xl $spacing-xl $spacing-2xl;
+            background: linear-gradient(180deg, rgba(v.$grey-color, 0.25) 0%, rgba(v.$grey-color, 0.18) 100%);
+            border: 1px solid rgba(v.$blue-color, 0.25);
+            border-radius: t.$radius-xl;
+            color: v.$white-color;
+            padding: t.$spacing-2xl t.$spacing-xl t.$spacing-2xl;
             text-align: left;
-            transition: border-color $transition-fast, box-shadow $transition-base, transform $transition-fast,
-                background $transition-fast;
-            box-shadow: 0 6px 14px rgba($black-color, 0.25);
+            transition: border-color t.$transition-fast, box-shadow t.$transition-base, transform t.$transition-fast,
+                background t.$transition-fast;
+            box-shadow: 0 6px 14px rgba(v.$black-color, 0.25);
             display: flex;
             flex-direction: column;
             position: relative;
@@ -58,10 +59,10 @@
             &::before {
                 content: '“';
                 position: absolute;
-                top: $spacing-md;
-                left: $spacing-md;
+                top: t.$spacing-md;
+                left: t.$spacing-md;
                 font-size: 3.6rem;
-                color: rgba($blue-color, 0.15);
+                color: rgba(v.$blue-color, 0.15);
                 font-family: Georgia, serif;
                 line-height: 1;
                 pointer-events: none;
@@ -72,9 +73,9 @@
                 content: '';
                 position: absolute;
                 inset: 0;
-                background: radial-gradient(circle at 15% 15%, rgba($blue-color, 0.18), transparent 60%);
+                background: radial-gradient(circle at 15% 15%, rgba(v.$blue-color, 0.18), transparent 60%);
                 opacity: 0;
-                transition: opacity $transition-fast;
+                transition: opacity t.$transition-fast;
                 z-index: 0;
             }
 
@@ -85,52 +86,52 @@
 
             &:hover {
                 transform: translateY(-6px);
-                border-color: rgba($blue-color, 0.6);
-                box-shadow: 0 16px 30px rgba($black-color, 0.35), 0 0 24px rgba($blue-color, 0.25);
-                background: linear-gradient(180deg, rgba($grey-color, 0.3) 0%, rgba($grey-color, 0.22) 100%);
+                border-color: rgba(v.$blue-color, 0.6);
+                box-shadow: 0 16px 30px rgba(v.$black-color, 0.35), 0 0 24px rgba(v.$blue-color, 0.25);
+                background: linear-gradient(180deg, rgba(v.$grey-color, 0.3) 0%, rgba(v.$grey-color, 0.22) 100%);
                 &::after {
                     opacity: 1;
                 }
             }
 
-            @media (min-width: $desktop) {
-                padding: $spacing-3xl $spacing-2xl $spacing-3xl;
+            @media (min-width: v.$desktop) {
+                padding: t.$spacing-3xl t.$spacing-2xl t.$spacing-3xl;
             }
         }
 
         &-title {
-            color: $blue-color;
-            font-size: $font-size-xl;
-            margin: 0 0 $spacing-md;
-            font-weight: $font-weight-semibold;
-            line-height: $line-height-tight;
+            color: v.$blue-color;
+            font-size: t.$font-size-xl;
+            margin: 0 0 t.$spacing-md;
+            font-weight: t.$font-weight-semibold;
+            line-height: t.$line-height-tight;
             letter-spacing: 0.5px;
-            @media (min-width: $tablet) {
-                font-size: $font-size-2xl;
+            @media (min-width: v.$tablet) {
+                font-size: t.$font-size-2xl;
             }
-            @media (min-width: $desktop) {
-                font-size: $font-size-3xl;
+            @media (min-width: v.$desktop) {
+                font-size: t.$font-size-3xl;
             }
         }
 
         &-description {
-            font-size: $font-size-base;
-            font-weight: $font-weight-regular;
-            line-height: $line-height-relaxed;
-            color: $light-grey-color;
+            font-size: t.$font-size-base;
+            font-weight: t.$font-weight-regular;
+            line-height: t.$line-height-relaxed;
+            color: v.$light-grey-color;
             margin: 0;
             flex: 1;
-            @media (min-width: $tablet) {
-                font-size: $font-size-lg;
+            @media (min-width: v.$tablet) {
+                font-size: t.$font-size-lg;
             }
-            @media (min-width: $desktop) {
-                font-size: $font-size-xl;
+            @media (min-width: v.$desktop) {
+                font-size: t.$font-size-xl;
             }
         }
 
         &-bold-text {
-            font-weight: $font-weight-semibold;
-            color: $white-color;
+            font-weight: t.$font-weight-semibold;
+            color: v.$white-color;
         }
     }
 }
