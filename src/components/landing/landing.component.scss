@@ -1,9 +1,8 @@
-@use 'variables' as v;
-@use 'global' as *;
+@use '../../styles/index' as *;
 
 .landing {
-    background-color: v.$light-black-color;
-    color: v.$white-color;
+    background-color: $light-black-color;
+    color: $white-color;
     text-align: center;
     padding: 2rem 1.5rem;
     min-height: 100vh;
@@ -18,7 +17,7 @@
 
     &__dwn-btn {
         display: none;
-        color: v.$blue-color;
+        color: $blue-color;
         font-size: 1.2rem;
     }
 
@@ -55,19 +54,16 @@
 
     &__name {
         margin-top: 3rem;
-        font-size: 3.9rem;
+        font-size: 3.4rem;
         font-weight: bold;
-        color: v.$blue-color;
-        // background: linear-gradient(to right, v.$red-color, v.$purple-color);
-        // -webkit-background-clip: text;
-        // -webkit-text-fill-color: transparent;
+        color: $blue-color;
     }
 
     &__subtitle {
-        color: v.$white-color;
-        font-size: 2.3rem;
+        color: $white-color;
+        font-size: 1.8rem;
         max-width: 22rem;
-        font-weight: 600;
+        font-weight: 400;
         margin-top: 0.4rem;
         line-height: 1.3;
         text-underline-offset: 4px;
@@ -79,7 +75,7 @@
             top: 0;
             right: 0;
             left: 0;
-            background-color: v.$light-black-color;
+            background-color: $light-black-color;
 
             @media (min-width: 768px) {
                 display: none;
@@ -87,15 +83,15 @@
         }
 
         &-list {
-            background-color: v.$light-black-color;
+            background-color: $light-black-color;
             padding: 1rem 1rem 0;
         }
 
         &-item {
             font-size: 1.6rem;
             border-radius: 1rem;
-            color: v.$white-color;
-            background-color: v.$grey-color;
+            color: $white-color;
+            background-color: $grey-color;
             font-weight: 300;
             text-align: center;
             text-decoration: none;
@@ -103,15 +99,14 @@
             border: 2px solid transparent;
 
             &:hover {
-                background-image: linear-gradient(v.$grey-color, v.$grey-color),
-                    // background color
-                    linear-gradient(to right, v.$red-color, v.$purple-color); // bakground border
+                background-image: linear-gradient($grey-color, $grey-color),
+                    linear-gradient(to right, $red-color, $purple-color); // bakground border
                 background-origin: border-box;
                 background-clip: padding-box, border-box;
             }
 
             a {
-                color: v.$white-color;
+                color: $white-color;
                 text-decoration: none;
                 display: block;
                 padding: 1.2rem 2rem;
