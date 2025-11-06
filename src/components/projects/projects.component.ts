@@ -28,7 +28,7 @@ export class ProjectsComponent {
             title: 'projects.taskFlow.title',
             description: 'projects.taskFlow.description',
             technologies: ['Angular', 'TypeScript', 'NgRx', 'Angular Material', 'Signals'],
-            image: 'projects/task-flow-ngrx-app.png',
+            image: 'projects/task-flow-ngrx-app-1.png',
             githubUrl: 'https://github.com/ceciDucos/task-flow-ngrx',
             featured: true,
         },
