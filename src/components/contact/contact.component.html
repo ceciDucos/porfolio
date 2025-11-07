@@ -1,12 +1,11 @@
 <section id="contact" class="contact">
-    <div id="contact-title" class="contact__row">
-        <p class="contact__title--blue">
-            {{ 'contact.title.0' | translate }}
-        </p>
-        <p class="contact__title">
-            {{ 'contact.title.1' | translate }}
-        </p>
+    <div id="contact-title" class="contact__header">
+        <h2 class="contact__title">
+            <span class="contact__title--primary">{{ 'contact.title.0' | translate }}</span>
+            <span class="contact__title--accent">{{ 'contact.title.1' | translate }}</span>
+        </h2>
     </div>
+
     <form id="contact-form" class="contact__form" [formGroup]="contactForm" (ngSubmit)="sendEmail()">
         <div class="contact__form-row">
             <div class="contact__field">

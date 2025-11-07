@@ -46,7 +46,7 @@ export class ProjectsComponent {
             title: 'projects.basingScribes.title',
             description: 'projects.basingScribes.description',
             technologies: ['React', 'JavaScript', 'CSS'],
-            image: 'projects/ba-sing-scribes-app.png',
+            image: 'projects/ba-sing-scribes-app-1.png',
             githubUrl: 'https://github.com/ceciDucos/BaSingScribesReact',
             featured: true,
         },

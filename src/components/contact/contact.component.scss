@@ -9,9 +9,15 @@
     }
 
     &__title {
-        @include common-title;
+        @include app-row;
+        text-align: center;
+        display: block;
 
-        &--blue {
+        &--primary {
+            @include common-title;
+        }
+
+        &--accent {
             @include blue-title;
         }
     }
@@ -23,7 +29,7 @@
     }
 
     &__field-label {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         color: v.$white-color;
         font-weight: 500;
         margin-bottom: 1.4rem;
@@ -75,19 +81,32 @@
 
     &__send-btn {
         width: 100%;
-        padding: 1rem;
+        padding: 1.6rem 2rem;
         font-size: 1.8rem;
-        border: none;
-        background-color: v.$white-color;
-        color: v.$light-black-color;
-        border-radius: 1rem;
-        font-weight: 700;
+        border: 1px solid rgba(v.$blue-color, 0.5);
+        background: rgba(v.$blue-color, 0.1);
+        color: v.$white-color;
+        border-radius: 1.2rem;
+        font-weight: 600;
         cursor: pointer;
         margin: 1rem 0 8rem;
-        opacity: 1;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+
+        &:hover:not(:disabled) {
+            transform: translateY(-4px);
+            border-color: v.$blue-color;
+            background: rgba(v.$blue-color, 0.2);
+            box-shadow: 0 8px 20px rgba(v.$blue-color, 0.3);
+            color: v.$blue-color;
+        }
+
+        &:active:not(:disabled) {
+            transform: translateY(-2px);
+        }
 
         &:disabled {
-            opacity: 0.7;
+            opacity: 0.4;
             cursor: not-allowed;
         }
     }
