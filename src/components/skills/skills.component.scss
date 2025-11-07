@@ -1,5 +1,4 @@
-@use 'variables' as v;
-@use 'global' as *;
+@use '../../styles/index' as *;
 
 .skills {
     @include app-container;
@@ -18,10 +17,10 @@
 
     &__card {
         &-container {
-            background-color: v.$grey-color;
+            background-color: $grey-color;
             border: none;
             border-radius: 1.2rem;
-            color: v.$white-color;
+            color: $white-color;
             font-size: 1.6rem;
             outline: none;
             text-align: center;
@@ -33,7 +32,7 @@
         }
 
         &-title {
-            color: v.$blue-color;
+            color: $blue-color;
             font-size: 2rem;
             margin-bottom: 1.2rem;
             font-weight: 600;

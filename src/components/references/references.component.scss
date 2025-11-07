@@ -3,21 +3,27 @@
 .references {
     @include app-container;
     min-height: 100vh;
-    padding: $spacing-3xl $spacing-lg $spacing-3xl;
 
     &__row {
         margin-bottom: $spacing-3xl;
         text-align: center;
     }
 
-    &__title {
-        display: inline;
-        margin: 0;
-        @include common-title;
+    &__header {
+        margin-bottom: $spacing-3xl;
+        text-align: center;
+    }
 
-        &--blue {
+    &__title {
+        @include app-row;
+        display: block;
+
+        &--primary {
+            @include common-title;
+        }
+
+        &--accent {
             @include blue-title;
-            margin-right: $spacing-md;
         }
     }
 
@@ -50,44 +56,11 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            isolation: isolate;
-            overflow: hidden;
-
-            &::before {
-                content: '“';
-                position: absolute;
-                top: $spacing-md;
-                left: $spacing-md;
-                font-size: 3.6rem;
-                color: rgba($blue-color, 0.15);
-                font-family: Georgia, serif;
-                line-height: 1;
-                pointer-events: none;
-                z-index: 0;
-            }
-
-            &::after {
-                content: '';
-                position: absolute;
-                inset: 0;
-                background: radial-gradient(circle at 15% 15%, rgba($blue-color, 0.18), transparent 60%);
-                opacity: 0;
-                transition: opacity $transition-fast;
-                z-index: 0;
-            }
-
-            > * {
-                position: relative;
-                z-index: 1;
-            }
 
             &:hover {
                 transform: translateY(-6px);
                 border-color: rgba($blue-color, 0.6);
                 background: linear-gradient(180deg, rgba($grey-color, 0.3) 0%, rgba($grey-color, 0.22) 100%);
-                &::after {
-                    opacity: 1;
-                }
             }
 
             @media (min-width: $desktop) {
@@ -97,7 +70,7 @@
 
         &-title {
             color: $blue-color;
-            font-size: $font-size-xl;
+            font-size: 1.8rem;
             margin: 0 0 $spacing-md;
             font-weight: $font-weight-semibold;
             line-height: $line-height-tight;
@@ -111,8 +84,8 @@
         }
 
         &-description {
-            font-size: $font-size-base;
-            font-weight: $font-weight-regular;
+            font-size: 1.7rem;
+            font-weight: 300;
             line-height: $line-height-relaxed;
             color: $light-grey-color;
             margin: 0;

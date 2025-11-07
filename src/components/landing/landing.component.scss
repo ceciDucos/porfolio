@@ -9,10 +9,9 @@
     position: relative;
 
     &__header {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
         margin-bottom: 2rem;
+        position: absolute;
+        right: 20px;
     }
 
     &__dwn-btn {
@@ -38,12 +37,12 @@
     }
 
     &__content {
-        margin-top: 7rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 1rem;
+        height: 100vh;
     }
 
     &__avatar {
