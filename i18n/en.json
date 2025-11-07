@@ -75,8 +75,7 @@
         }
     },
     "projects": {
-        "title": "Featured",
-        "subtitle": "Projects",
+        "title": ["Featured", " projects"],
         "filters": {
             "all": "All"
         },
