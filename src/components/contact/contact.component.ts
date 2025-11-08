@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { emailValidator } from '../../shared/custom-email.validator';
@@ -13,9 +13,11 @@ import emailjs from '@emailjs/browser';
     templateUrl: 'contact.component.html',
     styleUrls: ['contact.component.scss'],
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, OnDestroy {
     contactForm!: FormGroup;
     loading = false;
+    elementRef = inject(ElementRef);
+    private observer?: IntersectionObserver;
 
     constructor(
         private notificationService: NotificationService,
@@ -29,6 +31,29 @@ export class ContactComponent implements OnInit {
             email: ['', [Validators.required, emailValidator()]],
             message: ['', Validators.required],
         });
+
+        this.observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px',
+            }
+        );
+
+        setTimeout(() => {
+            const elements = this.elementRef.nativeElement.querySelectorAll('.animate-on-scroll');
+            elements.forEach((el: Element) => this.observer?.observe(el));
+        }, 100);
+    }
+
+    ngOnDestroy() {
+        this.observer?.disconnect();
     }
 
     sendEmail() {

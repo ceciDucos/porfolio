@@ -38,7 +38,7 @@
     &__filter-btn {
         font-family: $main-font;
         background: transparent;
-        border: 2px solid $blue-transparent-30;
+        border: 1px solid $blue-transparent-30;
         color: $white-color;
         padding: $spacing-sm $spacing-lg;
         border-radius: 13px;
@@ -56,8 +56,8 @@
         }
 
         &--active {
-            background: $blue-color;
-            border-color: $blue-color;
+            background: linear-gradient(135deg, $blue-color 0%, $cyan-color 100%);
+            border-color: $cyan-color;
         }
     }
 
@@ -167,14 +167,14 @@
         text-decoration: none;
         transition: all $transition-base;
         font-family: $main-font;
-        background: $blue-color;
+        background: linear-gradient(135deg, $blue-color 0%, $cyan-color 100%);
         color: $white-color;
 
         @media (min-width: $desktop) {
             &:hover {
-                background: $blue-transparent-90;
                 transform: translateY(-2px);
                 box-shadow: 0 6px 16px $blue-transparent-40;
+                filter: brightness(1.1);
             }
         }
 
@@ -253,4 +253,20 @@
             }
         }
     }
+}
+
+// Scroll animations
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card.animate-on-scroll {
+    transition-delay: var(--delay, 0s);
 }

@@ -1,13 +1,13 @@
 <section id="projects" class="projects">
     <div class="projects__container">
-        <div class="projects__header">
+        <div class="projects__header animate-on-scroll">
             <h2 class="projects__title">
                 <span class="projects__title--primary">{{ 'projects.title.0' | translate }}</span>
                 <span class="projects__title--accent">{{ 'projects.title.1' | translate }}</span>
             </h2>
         </div>
 
-        <div class="projects__filters">
+        <div class="projects__filters animate-on-scroll">
             <button
                 class="projects__filter-btn"
                 [class.projects__filter-btn--active]="selectedFilter === 'all'"
@@ -27,8 +27,12 @@
         </div>
 
         <div class="projects__grid">
-            @for (project of filteredProjects; track project.id) {
-            <article class="project-card" [class.project-card--featured]="project.featured">
+            @for (project of filteredProjects; track project.id; let i = $index) {
+            <article
+                class="project-card animate-on-scroll"
+                [class.project-card--featured]="project.featured"
+                [style.animation-delay]="i * 0.1 + 's'"
+            >
                 <a
                     [href]="project.githubUrl"
                     target="_blank"

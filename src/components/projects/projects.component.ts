@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy, ElementRef } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 interface Project {
@@ -19,8 +19,11 @@ interface Project {
     templateUrl: './projects.component.html',
     styleUrls: ['./projects.component.scss'],
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit, OnDestroy {
     translate = inject(TranslateService);
+    elementRef = inject(ElementRef);
+
+    private observer?: IntersectionObserver;
 
     projects: Project[] = [
         {
@@ -54,6 +57,31 @@ export class ProjectsComponent {
 
     filteredProjects: Project[] = this.projects;
     selectedFilter: string = 'all';
+
+    ngOnInit(): void {
+        this.observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px',
+            }
+        );
+
+        setTimeout(() => {
+            const elements = this.elementRef.nativeElement.querySelectorAll('.animate-on-scroll');
+            elements.forEach((el: Element) => this.observer?.observe(el));
+        }, 100);
+    }
+
+    ngOnDestroy(): void {
+        this.observer?.disconnect();
+    }
 
     filterProjects(technology: string): void {
         this.selectedFilter = technology;

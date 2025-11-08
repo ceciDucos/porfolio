@@ -1,5 +1,4 @@
-@use 'variables' as v;
-@use 'global' as *;
+@use '../../styles/index' as *;
 
 .contact {
     @include app-container;
@@ -30,7 +29,7 @@
 
     &__field-label {
         font-size: 1.6rem;
-        color: v.$white-color;
+        color: $white-color;
         font-weight: 500;
         margin-bottom: 1.4rem;
     }
@@ -38,15 +37,16 @@
     &__field-input {
         padding: 1.2rem 1.6rem;
         height: 2rem;
-        background-color: v.$grey-color;
-        border: none;
+        background-color: $grey-transparent-15;
+        border: 2px solid $blue-transparent-20;
         border-radius: 1.2rem;
-        color: v.$white-color;
+        color: $white-color;
         font-size: 1.6rem;
         outline: none;
+        transition: all $transition-base;
 
         &::placeholder {
-            color: v.$light-grey-color;
+            color: $light-grey-color;
             font-weight: 400;
             font-size: 1.6rem;
             opacity: 1;
@@ -54,28 +54,38 @@
 
         &:focus {
             outline: none;
-            box-shadow: none;
+            border-color: $blue-transparent-60;
+            background-color: $grey-transparent-60;
+            box-shadow: 0 0 0 3px $blue-transparent-10;
         }
     }
 
     &__text-area {
-        font-family: v.$main-font;
+        font-family: $main-font;
         padding: 1.2rem 1.6rem;
-        background-color: v.$grey-color;
-        border: none;
+        background-color: $grey-transparent-15;
+        border: 2px solid $blue-transparent-20;
         border-radius: 1.2rem;
-        color: v.$white-color;
+        color: $white-color;
         font-size: 1.6rem;
         outline: none;
         height: 9rem;
         resize: none;
+        transition: all $transition-base;
 
         &::placeholder {
-            color: v.$light-grey-color;
+            color: $light-grey-color;
             font-weight: 400;
             font-size: 1.6rem;
-            font-family: v.$main-font;
-            opacity: 1; // Ensure it’s visible in all browsers
+            font-family: $main-font;
+            opacity: 1;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: $blue-transparent-60;
+            background-color: $grey-transparent-60;
+            box-shadow: 0 0 0 3px $blue-transparent-10;
         }
     }
 
@@ -83,9 +93,9 @@
         width: 100%;
         padding: 1.6rem 2rem;
         font-size: 1.8rem;
-        border: 1px solid rgba(v.$blue-color, 0.5);
-        background: rgba(v.$blue-color, 0.1);
-        color: v.$white-color;
+        border: 2px solid $blue-transparent-20;
+        background: linear-gradient(135deg, $blue-color 0%, $cyan-color 100%);
+        color: $white-color;
         border-radius: 1.2rem;
         font-weight: 600;
         cursor: pointer;
@@ -95,10 +105,9 @@
 
         &:hover:not(:disabled) {
             transform: translateY(-4px);
-            border-color: v.$blue-color;
-            background: rgba(v.$blue-color, 0.2);
-            box-shadow: 0 8px 20px rgba(v.$blue-color, 0.3);
-            color: v.$blue-color;
+            border-color: $cyan-color;
+            filter: brightness(1.1);
+            box-shadow: 0 8px 20px $blue-transparent-30;
         }
 
         &:active:not(:disabled) {
@@ -115,12 +124,24 @@
         margin-top: 0.6rem;
         font-size: 1.3rem;
         font-weight: 500;
-        color: v.$light-red-color;
+        color: $light-red-color;
         padding-left: 0.4rem;
         opacity: 0;
 
         &.visible {
             opacity: 1;
         }
+    }
+}
+
+// Scroll animations
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

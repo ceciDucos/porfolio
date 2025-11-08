@@ -1,5 +1,5 @@
 <section id="contact" class="contact">
-    <div id="contact-title" class="contact__header">
+    <div id="contact-title" class="contact__header animate-on-scroll">
         <h2 class="contact__title">
             <span class="contact__title--primary">{{ 'contact.title.0' | translate }}</span>
             <span class="contact__title--accent">{{ 'contact.title.1' | translate }}</span>
@@ -8,7 +8,7 @@
 
     <form id="contact-form" class="contact__form" [formGroup]="contactForm" (ngSubmit)="sendEmail()">
         <div class="contact__form-row">
-            <div class="contact__field">
+            <div class="contact__field animate-on-scroll" style="animation-delay: 0.1s">
                 <label for="name" class="contact__field-label">{{ 'contact.name' | translate }}</label>
                 <input
                     #name
@@ -28,7 +28,7 @@
                     {{ 'contact.nameRequired' | translate }}
                 </p>
             </div>
-            <div class="contact__field">
+            <div class="contact__field animate-on-scroll" style="animation-delay: 0.2s">
                 <label for="email" class="contact__field-label">{{ 'contact.email' | translate }}</label>
                 <input
                     #email
@@ -51,7 +51,7 @@
                 </p>
             </div>
         </div>
-        <div class="contact__field">
+        <div class="contact__field animate-on-scroll" style="animation-delay: 0.3s">
             <label for="message" class="contact__field-label">{{ 'contact.message' | translate }}</label>
             <textarea
                 #message
@@ -69,7 +69,8 @@
             </p>
         </div>
         <button
-            class="contact__send-btn"
+            class="contact__send-btn animate-on-scroll"
+            style="animation-delay: 0.4s"
             type="submit"
             [disabled]="!name.value || !email.value || !message.value || !contactForm.valid || loading"
         >
