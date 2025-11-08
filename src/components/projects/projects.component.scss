@@ -47,7 +47,16 @@
         cursor: pointer;
         transition: all $transition-base;
 
+        @media (min-width: $tablet) {
+            padding: 1rem 2rem;
+            font-size: 1.5rem;
+        }
+
         @media (min-width: $desktop) {
+            padding: 1.2rem 2.4rem;
+            font-size: 1.6rem;
+            font-weight: 400;
+
             &:hover {
                 border-color: $blue-color;
                 background: $blue-transparent-10;
@@ -58,6 +67,7 @@
         &--active {
             background: linear-gradient(135deg, $blue-color 0%, $cyan-color 100%);
             border-color: $cyan-color;
+            font-weight: 500;
         }
     }
 

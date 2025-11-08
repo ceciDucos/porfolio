@@ -50,7 +50,6 @@
         align-items: center;
         justify-content: center;
         transition: all $transition-base;
-        color: $white-transparent-70;
         position: relative;
 
         &::before {
@@ -63,15 +62,15 @@
             transition: opacity $transition-base;
         }
 
-        &:hover {
-            color: $blue-color;
+        @media (hover: hover) {
+            &:hover {
+                &::before {
+                    opacity: 1;
+                }
 
-            &::before {
-                opacity: 1;
-            }
-
-            svg {
-                transform: scale(1.1);
+                svg {
+                    transform: scale(1.1);
+                }
             }
         }
 
@@ -91,6 +90,10 @@
             transition: transform $transition-base;
             position: relative;
             z-index: 1;
+
+            line {
+                stroke: $cyan-color;
+            }
         }
     }
 

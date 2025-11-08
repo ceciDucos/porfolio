@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, OnDestroy, ElementRef } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy, ElementRef, AfterViewChecked } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 interface Project {
@@ -19,11 +19,12 @@ interface Project {
     templateUrl: './projects.component.html',
     styleUrls: ['./projects.component.scss'],
 })
-export class ProjectsComponent implements OnInit, OnDestroy {
+export class ProjectsComponent implements OnInit, OnDestroy, AfterViewChecked {
     translate = inject(TranslateService);
     elementRef = inject(ElementRef);
 
     private observer?: IntersectionObserver;
+    private needsReobserve = false;
 
     projects: Project[] = [
         {
@@ -83,6 +84,16 @@ export class ProjectsComponent implements OnInit, OnDestroy {
         this.observer?.disconnect();
     }
 
+    ngAfterViewChecked(): void {
+        if (this.needsReobserve) {
+            this.needsReobserve = false;
+            setTimeout(() => {
+                const elements = this.elementRef.nativeElement.querySelectorAll('.project-card.animate-on-scroll');
+                elements.forEach((el: Element) => this.observer?.observe(el));
+            }, 0);
+        }
+    }
+
     filterProjects(technology: string): void {
         this.selectedFilter = technology;
         if (technology === 'all') {
@@ -90,6 +101,7 @@ export class ProjectsComponent implements OnInit, OnDestroy {
         } else {
             this.filteredProjects = this.projects.filter((project) => project.technologies.includes(technology));
         }
+        this.needsReobserve = true;
     }
 
     get featuredProjects(): Project[] {
