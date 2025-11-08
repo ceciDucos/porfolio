@@ -137,7 +137,6 @@
     },
     "footer": {
         "label": "Site footer",
-        "linkAria": "Opens Delfina Grana's Behance profile in a new tab",
-        "text": ["© 2025 Cecilia Ducos", "Designed with 💙 by ", "Delfina Graña"]
+        "text": "© 2025 Cecilia Ducos"
     }
 }

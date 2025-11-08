@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -7,8 +7,6 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     templateUrl: 'footer.component.html',
     styleUrls: ['footer.component.scss'],
 })
-export class FooterComponent implements OnInit {
-    constructor(public translate: TranslateService) {}
-
-    ngOnInit() {}
+export class FooterComponent {
+    translate = inject(TranslateService);
 }
