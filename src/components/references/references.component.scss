@@ -75,7 +75,7 @@
     &__card {
         &-container {
             background: $grey-transparent-15;
-            border: 2px solid $blue-transparent-20;
+            border: 1px solid $blue-transparent-20;
             border-radius: $radius-lg;
             color: $white-color;
             padding: $spacing-xl;
@@ -125,7 +125,7 @@
 
         &-description {
             font-size: 1.5rem;
-            font-weight: $font-weight-regular;
+            font-weight: 300;
             line-height: 1.7;
             color: $light-grey-transparent-90;
             margin: 0;
@@ -144,17 +144,5 @@
             font-weight: $font-weight-semibold;
             color: $white-color;
         }
-    }
-}
-
-// Scroll animations
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-
-    &.visible {
-        opacity: 1;
-        transform: translateY(0);
     }
 }

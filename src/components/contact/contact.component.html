@@ -72,7 +72,7 @@
             class="contact__send-btn animate-on-scroll"
             style="animation-delay: 0.4s"
             type="submit"
-            [disabled]="!name.value || !email.value || !message.value || !contactForm.valid || loading"
+            [disabled]="!contactForm.valid || contactForm.pristine || loading"
         >
             {{ 'common.send' | translate }}
         </button>

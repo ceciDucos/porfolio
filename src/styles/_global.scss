@@ -1,5 +1,5 @@
-@use 'variables' as v;
-@use 'tokens' as t;
+@use 'variables' as *;
+@use 'tokens' as *;
 
 html,
 body {
@@ -18,18 +18,18 @@ html {
 }
 
 @mixin app-container {
-    background-color: v.$light-black-color;
+    background-color: $light-black-color;
     padding: 2rem;
 }
 
 @mixin common-title {
     display: inline;
-    color: v.$white-color;
+    color: $white-color;
 }
 
 @mixin blue-title {
     display: inline;
-    background: linear-gradient(135deg, v.$blue-color 0%, v.$cyan-color 100%);
+    background: linear-gradient(135deg, $blue-color 0%, $cyan-color 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -75,6 +75,26 @@ html {
     }
 }
 
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 @keyframes pulse {
     0%,
     100% {
@@ -100,9 +120,21 @@ html {
 @keyframes glow {
     0%,
     100% {
-        box-shadow: 0 0 20px v.$blue-transparent-20;
+        box-shadow: 0 0 20px $blue-transparent-20;
     }
     50% {
-        box-shadow: 0 0 30px v.$blue-transparent-40, 0 0 40px v.$blue-transparent-20;
+        box-shadow: 0 0 30px $blue-transparent-40, 0 0 40px $blue-transparent-20;
+    }
+}
+
+// Scroll animations (used across multiple components)
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
