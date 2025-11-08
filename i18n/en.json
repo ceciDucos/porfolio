@@ -90,14 +90,14 @@
         },
         "basingScribes": {
             "title": "BaSing Scribes",
-            "description": "A book management application built with React and TypeScript. Features include adding, editing, and deleting books with a clean, intuitive interface."
+            "description": "A social networking app built with React and JavaScript where users can create and share posts, follow others, and chat in real-time using Socket.io."
         },
         "authDemo": {
             "title": "Secure Authentication App",
             "description": "Authentication system with JWT tokens, route guards, HTTP interceptors, and persistent login. Built with Angular 20 and modern security practices."
         },
         "taskFlow": {
-            "title": "Task Flow - NgRx",
+            "title": "Task Flow Management",
             "description": "Task management application built with Angular and NgRx for state management. Features include task creation, updates, filtering, and reactive state handling."
         }
     },
