@@ -2,7 +2,6 @@
 
 .references {
     @include app-container;
-    min-height: 100vh;
 
     &__row {
         margin-bottom: $spacing-3xl;
@@ -127,7 +126,7 @@
             font-size: 1.5rem;
             font-weight: 300;
             line-height: 1.7;
-            color: $light-grey-transparent-90;
+            color: $white-transparent-80;
             margin: 0;
             flex: 1;
 

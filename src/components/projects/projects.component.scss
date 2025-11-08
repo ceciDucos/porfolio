@@ -80,7 +80,7 @@
     &__empty {
         text-align: center;
         padding: $spacing-3xl;
-        color: $light-grey-color;
+        color: $white-transparent-70;
         font-size: $font-size-lg;
     }
 }
@@ -208,7 +208,7 @@
     }
 
     &__description {
-        color: $light-grey-color;
+        color: $white-transparent-70;
         line-height: $line-height-relaxed;
         font-size: 1.5rem;
         font-weight: 300;
