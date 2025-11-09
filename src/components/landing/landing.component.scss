@@ -282,12 +282,13 @@
             background: $grey-transparent-60;
             color: $white-transparent-70;
             transition: all $transition-base;
+            border: 1px solid $blue-transparent-30;
 
             &:hover {
-                background: $blue-color;
                 color: $white-color;
-                transform: translateY(-4px);
-                box-shadow: 0 8px 16px $blue-transparent-40;
+                border-color: $blue-color;
+                background: $blue-transparent-10;
+                transform: translateY(-2px);
             }
 
             svg {
