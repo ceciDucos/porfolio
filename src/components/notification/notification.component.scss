@@ -1,34 +1,34 @@
-@use 'variables' as v;
+@use '../../styles/index' as *;
 
 .notification {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem; // ⬅️ ahora está anclado a la derecha
-    padding: 2rem;
-    border-radius: 0.8rem;
+    bottom: $spacing-xl;
+    right: $spacing-xl;
+    padding: $spacing-xl;
+    border-radius: $radius-lg;
     font-weight: 600;
     font-size: 1.4rem;
-    color: v.$white-color;
+    color: $white-color;
     z-index: 9999;
     animation: fadeIn 0.4s ease;
 
     &.success {
-        background-color: v.$green-color;
+        background-color: $green-color;
     }
 
     &.error {
-        background-color: v.$warning-red;
+        background-color: $warning-red;
     }
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateX(30%); // entra desde la derecha
+        transform: translateX(30%);
     }
     to {
         opacity: 1;
-        transform: translateX(0); // queda quieto en su posición
+        transform: translateX(0);
     }
 }
 

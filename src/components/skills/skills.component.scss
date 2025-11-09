@@ -9,6 +9,7 @@
 
     &__title {
         @include common-title;
+        line-height: 1.3;
 
         &--blue {
             @include blue-title;
@@ -19,22 +20,22 @@
         &-container {
             background-color: $grey-color;
             border: none;
-            border-radius: 1.2rem;
+            border-radius: $radius-xl;
             color: $white-color;
             font-size: 1.6rem;
             outline: none;
             text-align: center;
-            padding: 4rem 1.5rem;
+            padding: $spacing-3xl $spacing-lg;
 
             &:not(:last-of-type) {
-                margin-bottom: 3rem;
+                margin-bottom: $spacing-2xl;
             }
         }
 
         &-title {
             color: $blue-color;
             font-size: 2rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: $radius-xl;
             font-weight: 600;
         }
 

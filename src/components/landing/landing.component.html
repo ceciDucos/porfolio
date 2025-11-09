@@ -1,4 +1,4 @@
-<div class="landing">
+<section id="home" class="landing">
     <div class="landing__background"></div>
 
     <div class="landing__header">
@@ -147,25 +147,24 @@
         aria-labelledby="mobile-menu-title"
     >
         <div class="landing__mobile-menu-backdrop"></div>
+        <button (click)="closeMenu()" class="landing__mobile-menu-close" [attr.aria-label]="'Close menu'">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            >
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
 
         <div class="landing__mobile-menu-content">
-            <button (click)="closeMenu()" class="landing__mobile-menu-close" [attr.aria-label]="'Close menu'">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                >
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-
             <ul role="menu" class="landing__mobile-menu-list">
                 <li class="landing__mobile-menu-item">
                     <a href="#projects" role="menuitem" (click)="closeMenu()">
@@ -298,7 +297,7 @@
         </div>
     </nav>
     }
-</div>
+</section>
 
 <!-- <rd-skills /> -->
 <rd-projects />

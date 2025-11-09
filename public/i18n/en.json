@@ -105,18 +105,22 @@
         "title": ["References", " people I work with"],
         "ref1": {
             "name": "Rebecca Scott",
+            "linkedin": "https://www.linkedin.com/in/rebeccascott",
             "text": "Cecilia is an exceptional Angular developer. Her attention to detail and ability to implement complex features is impressive."
         },
         "ref2": {
             "name": "Nicolás Wagner",
+            "linkedin": "https://www.linkedin.com/in/nicolaswagner",
             "text": "Working with Cecilia has been a pleasure. She consistently delivers high-quality work and meets deadlines."
         },
         "ref3": {
             "name": "Aaron Johnson",
+            "linkedin": "https://www.linkedin.com/in/aaronjohnson",
             "text": "Working with Cecilia has been a pleasure. She consistently delivers high-quality work and meets deadlines."
         },
         "ref4": {
             "name": "Stacy Martinez",
+            "linkedin": "https://www.linkedin.com/in/stacymartinez",
             "text": "Working with Cecilia has been a pleasure. She consistently delivers high-quality work and meets deadlines."
         }
     },

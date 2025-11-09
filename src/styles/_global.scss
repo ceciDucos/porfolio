@@ -44,9 +44,17 @@ html {
 }
 
 @mixin app-row {
-    margin-bottom: 4.4rem;
+    margin-bottom: 6rem;
     font-weight: 700;
     font-size: 3rem;
+
+    @media (min-width: $tablet) {
+        margin-bottom: 7rem;
+    }
+
+    @media (min-width: $desktop) {
+        margin-bottom: 8rem;
+    }
 }
 
 // Animations
