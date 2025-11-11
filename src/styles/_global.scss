@@ -17,6 +17,16 @@ html {
     scroll-behavior: smooth;
 }
 
+::selection {
+    background-color: $blue-transparent-30;
+    color: $white-color;
+}
+
+::-moz-selection {
+    background-color: $blue-transparent-30;
+    color: $white-color;
+}
+
 @mixin app-container {
     background-color: $light-black-color;
     padding: 3rem 2rem;
