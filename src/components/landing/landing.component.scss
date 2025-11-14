@@ -34,7 +34,8 @@
         display: flex;
         justify-content: flex-end;
         z-index: 100;
-        background: linear-gradient(to bottom, $light-black-color, transparent);
+        background: linear-gradient(to bottom, rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.7), transparent);
+        backdrop-filter: blur(8px);
 
         @media (min-width: $tablet) {
             justify-content: center;
@@ -490,20 +491,31 @@
 .desktop-menu {
     &__list {
         display: flex;
-        gap: 3.2rem;
+        gap: 2.4rem;
         align-items: center;
 
         li {
             list-style: none;
         }
 
-        a {
-            color: white;
+        a:not(.desktop-menu__cv-btn) {
+            color: $white-transparent-70;
             text-decoration: none;
-            font-size: 1.6rem;
-            font-weight: 500;
-            transition: color $transition-base;
+            font-size: 1.5rem;
+            font-weight: 400;
+            transition: all $transition-base;
             position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: linear-gradient(90deg, $blue-color, $cyan-color);
+                transition: width $transition-base;
+            }
 
             &:hover {
                 color: $white-color;
@@ -516,24 +528,32 @@
     }
 
     &__cv-btn {
+        border: 1px solid $blue-transparent-30;
         display: inline-flex;
         align-items: center;
         gap: 0.8rem;
         padding: 1rem 2rem;
-        background: linear-gradient(135deg, $blue-color 0%, $cyan-color 100%);
+        background: transparent;
         color: $white-color;
-        border-radius: $radius-md;
-        border: 1px solid $blue-transparent-20;
+        border-radius: $radius-lg;
         transition: all $transition-base;
+        font-weight: 500;
+        font-size: 1.5rem;
+        text-decoration: none;
 
         &:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.1);
+            border-color: $blue-color;
+            background: $blue-transparent-10;
+            transform: translateY(-1px);
+        }
+
+        &:active {
+            transform: translateY(0);
         }
 
         svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
         }
     }
 }

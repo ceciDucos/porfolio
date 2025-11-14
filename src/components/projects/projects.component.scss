@@ -4,8 +4,7 @@
     @include app-container;
 
     &__container {
-        max-width: $container-xl;
-        margin: 0 auto;
+        @include app-content-wrapper;
     }
 
     &__header {
@@ -100,8 +99,9 @@
             justify-content: center;
         }
 
-        @media (min-width: $large-desktop) {
-            grid-template-columns: repeat(2, minmax(420px, 550px));
+        @media (min-width: $extra-large) {
+            grid-template-columns: repeat(2, minmax(500px, 700px));
+            gap: 4rem;
         }
     }
 

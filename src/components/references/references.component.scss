@@ -55,6 +55,11 @@
         @media (min-width: $desktop) {
             gap: $spacing-3xl;
         }
+
+        @media (min-width: $extra-large) {
+            max-width: 1400px;
+            gap: 4rem;
+        }
     }
 
     &__quote-icon {

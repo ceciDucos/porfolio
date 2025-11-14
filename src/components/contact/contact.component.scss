@@ -36,6 +36,10 @@
     &__form {
         max-width: 715px;
         width: 100%;
+
+        @media (min-width: $extra-large) {
+            max-width: 850px;
+        }
     }
 
     &__form-row {
