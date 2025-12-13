@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, OnInit, OnDestroy, ElementRef, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 import emailjs from '@emailjs/browser';
 
 @Component({
-    imports: [CommonModule, TranslateModule, ReactiveFormsModule],
+    imports: [TranslateModule, ReactiveFormsModule],
     selector: 'rd-contact',
     templateUrl: 'contact.component.html',
     styleUrls: ['contact.component.scss'],

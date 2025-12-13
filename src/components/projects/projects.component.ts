@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject, OnInit, OnDestroy, ElementRef, AfterViewChecked } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
@@ -15,7 +15,7 @@ interface Project {
 @Component({
     selector: 'rd-projects',
     standalone: true,
-    imports: [CommonModule, TranslateModule],
+    imports: [TranslateModule],
     templateUrl: './projects.component.html',
     styleUrls: ['./projects.component.scss'],
 })

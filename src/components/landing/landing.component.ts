@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, HostListener, OnInit, OnDestroy, ElementRef, Renderer2 } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ContactComponent } from '../contact/contact.component';
@@ -16,7 +16,7 @@ interface Particle {
 }
 
 @Component({
-    imports: [CommonModule, TranslateModule, ContactComponent, FooterComponent, ReferencesComponent, ProjectsComponent],
+    imports: [TranslateModule, ContactComponent, FooterComponent, ReferencesComponent, ProjectsComponent],
     selector: 'landing',
     templateUrl: 'landing.component.html',
     styleUrls: ['landing.component.scss'],
