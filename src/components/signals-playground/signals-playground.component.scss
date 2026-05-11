@@ -1,0 +1,297 @@
+@use '../../styles/index' as *;
+
+$signal-color: #a78bfa;
+$computed-color: $cyan-color;
+$effect-color: $green-color;
+$signal-bg: rgba(167, 139, 250, 0.12);
+$computed-bg: rgba(0, 212, 255, 0.12);
+$effect-bg: rgba(40, 199, 111, 0.12);
+
+.signals-playground {
+    background: linear-gradient(180deg, $light-black-color 0%, #0f1117 100%);
+    padding: 8rem 2rem;
+    border-top: 1px solid $white-transparent-08;
+
+    @media (min-width: $tablet) { padding: 10rem 4rem; }
+
+    &__container { max-width: 1100px; margin: 0 auto; }
+
+    &__header { text-align: center; margin-bottom: 5rem; }
+
+    &__tag {
+        display: inline-block;
+        padding: 0.5rem 1.4rem;
+        background: $signal-bg;
+        border: 1px solid rgba(167, 139, 250, 0.3);
+        border-radius: $radius-full;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: $signal-color;
+        margin-bottom: 1.6rem;
+    }
+
+    &__title {
+        font-size: 3.2rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.2rem;
+        flex-wrap: wrap;
+
+        @media (min-width: $tablet) { font-size: 4.4rem; }
+
+        &--primary { color: $white-color; }
+
+        &--accent {
+            background: linear-gradient(135deg, $signal-color 0%, $cyan-color 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    }
+
+    &__subtitle {
+        color: $white-transparent-70;
+        font-size: 1.7rem;
+        font-weight: 300;
+        max-width: 60rem;
+        margin: 0 auto;
+        line-height: 1.7;
+    }
+
+    &__workspace {
+        display: grid;
+        gap: 2.4rem;
+        grid-template-columns: 1fr;
+
+        @media (min-width: $desktop) { grid-template-columns: 1fr 1fr; align-items: start; }
+    }
+}
+
+.sp-panel {
+    background: #0d1117;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: $radius-lg;
+    overflow: hidden;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 1rem 1.6rem;
+        background: rgba(255, 255, 255, 0.04);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    &__dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        &--red { background: #ff5f56; }
+        &--yellow { background: #ffbd2e; }
+        &--green { background: #27c93f; }
+    }
+
+    &__title {
+        margin-left: 0.8rem;
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.4);
+        font-family: 'Fira Code', 'Courier New', monospace;
+    }
+}
+
+.sp-controls { display: flex; flex-direction: column; gap: 0.4rem; padding: 2rem; }
+
+.sp-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    padding: 1.6rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: $radius-md;
+    flex-wrap: wrap;
+
+    &__label {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        font-size: 1.5rem;
+        color: $white-transparent-70;
+        min-width: 140px;
+    }
+
+    &__value {
+        font-size: 2rem;
+        font-weight: 700;
+        color: $white-color;
+        font-family: 'Fira Code', 'Courier New', monospace;
+        min-width: 60px;
+        text-align: center;
+    }
+
+    &__buttons { display: flex; gap: 0.8rem; }
+
+    &__discount-btns { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+}
+
+.sp-code {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: $radius-sm;
+    font-size: 1.2rem;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-weight: 600;
+    flex-shrink: 0;
+
+    &--signal { background: $signal-bg; color: $signal-color; border: 1px solid rgba(167, 139, 250, 0.3); }
+    &--computed { background: $computed-bg; color: $computed-color; border: 1px solid rgba(0, 212, 255, 0.3); }
+    &--effect { background: $effect-bg; color: $effect-color; border: 1px solid rgba(40, 199, 111, 0.3); }
+}
+
+.sp-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-md;
+    border: 1px solid $white-transparent-08;
+    background: rgba(255, 255, 255, 0.05);
+    color: $white-color;
+    font-size: 1.8rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all $transition-fast;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover { background: rgba(167, 139, 250, 0.15); border-color: rgba(167, 139, 250, 0.4); color: $signal-color; }
+    &:active { transform: scale(0.92); }
+}
+
+.sp-discount-btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: $radius-md;
+    border: 1px solid $white-transparent-08;
+    background: rgba(255, 255, 255, 0.05);
+    color: $white-transparent-70;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &:hover { border-color: rgba(167, 139, 250, 0.4); color: $signal-color; }
+    &--active { background: $signal-bg; border-color: rgba(167, 139, 250, 0.5); color: $signal-color; font-weight: 600; }
+}
+
+.sp-output {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    &__row {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        &--discount .sp-output__value { color: #f87171; }
+        &--total { padding-top: 0.4rem; }
+    }
+
+    &__label { flex: 1; font-size: 1.5rem; color: $white-transparent-70; }
+
+    &__value {
+        font-size: 1.8rem;
+        font-weight: 700;
+        font-family: 'Fira Code', 'Courier New', monospace;
+        color: $white-color;
+        transition: color 0.3s ease;
+
+        &--total { font-size: 2.4rem; color: $effect-color; }
+    }
+
+    &__divider { height: 1px; background: $white-transparent-08; margin: 0.4rem 0; }
+}
+
+.sp-log {
+    margin: 0 2rem 1.6rem;
+    background: #080b10;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: $radius-md;
+    overflow: hidden;
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0.8rem 1.4rem;
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.35);
+        font-family: 'Fira Code', 'Courier New', monospace;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    &__indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: $effect-color;
+        box-shadow: 0 0 8px $effect-color;
+        animation: pulse-dot 2s infinite;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        min-height: 100px;
+        max-height: 160px;
+        overflow-y: auto;
+    }
+
+    &__entry {
+        font-size: 1.2rem;
+        font-family: 'Fira Code', 'Courier New', monospace;
+        padding: 0.4rem 0.6rem;
+        border-radius: 4px;
+        display: flex;
+        gap: 1rem;
+        transition: opacity 0.3s ease;
+
+        &--signal { color: $signal-color; }
+        &--computed { color: $computed-color; }
+        &--effect { color: $effect-color; }
+    }
+
+    &__empty { color: rgba(255, 255, 255, 0.25); font-style: italic; }
+
+    &__time { color: rgba(255, 255, 255, 0.25); flex-shrink: 0; }
+}
+
+.sp-reset {
+    display: block;
+    margin: 0 2rem 2rem;
+    width: calc(100% - 4rem);
+    padding: 1rem;
+    background: transparent;
+    border: 1px solid $white-transparent-08;
+    border-radius: $radius-md;
+    color: $white-transparent-70;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &:hover { border-color: rgba(255, 255, 255, 0.2); color: $white-color; background: rgba(255, 255, 255, 0.04); }
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}

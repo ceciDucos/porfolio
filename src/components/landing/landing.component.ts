@@ -1,10 +1,13 @@
 
-import { Component, HostListener, OnInit, OnDestroy, ElementRef, Renderer2 } from '@angular/core';
+import { Component, HostListener, OnInit, OnDestroy, ElementRef, Renderer2, inject } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ContactComponent } from '../contact/contact.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ReferencesComponent } from '../references/references.component';
 import { ProjectsComponent } from '../projects/projects.component';
+import { SkillsComponent } from '../skills/skills.component';
+import { CertificatesComponent } from '../certificates/certificates.component';
+import { ThemeService } from '../../services/theme.service';
 
 interface Particle {
     x: number;
@@ -16,7 +19,7 @@ interface Particle {
 }
 
 @Component({
-    imports: [TranslateModule, ContactComponent, FooterComponent, ReferencesComponent, ProjectsComponent],
+    imports: [TranslateModule, ContactComponent, FooterComponent, ReferencesComponent, ProjectsComponent, SkillsComponent, CertificatesComponent],
     selector: 'landing',
     templateUrl: 'landing.component.html',
     styleUrls: ['landing.component.scss'],
@@ -29,6 +32,9 @@ export class LandingComponent implements OnInit, OnDestroy {
     private mouseX = 0;
     private mouseY = 0;
     private animationId?: number;
+
+    // Inject theme service
+    themeService = inject(ThemeService);
 
     @HostListener('document:keydown.escape')
     handleEscape(): void {

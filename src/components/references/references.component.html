@@ -1,74 +1,61 @@
 <section id="references" class="references" aria-labelledby="references-heading">
-    <div class="references__header animate-on-scroll">
-        <h2 class="references__title">
-            <span class="references__title--primary">{{ 'references.title.0' | translate }}</span>
-            <span class="references__title--accent">{{ 'references.title.1' | translate }}</span>
-        </h2>
+    <div class="references__intro animate-on-scroll">
+        <span class="references__eyebrow">{{ 'references.title.0' | translate }}</span>
+        <h2 class="references__title">{{ 'references.title.1' | translate }}</h2>
     </div>
 
-    <div class="references__content">
-        <article
-            class="references__card-container animate-on-scroll"
-            style="animation-delay: 0.1s"
-            aria-labelledby="references-ref1-title"
-        >
-            <svg class="references__quote-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 7L8 11H11V17H5V11L7 7H10ZM19 7L17 11H20V17H14V11L16 7H19Z" fill="currentColor" />
-            </svg>
-            <h3 id="references-ref1-name" class="references__card-title">
-                {{ 'references.ref1.name' | translate }}
-            </h3>
-            <p class="references__card-description">
-                {{ 'references.ref1.text' | translate }}
-            </p>
+    <div class="references__list">
+        
+        <article class="ref-strip animate-on-scroll" style="animation-delay: 0.1s">
+            <div class="ref-strip__inner">
+                <div class="ref-strip__left">
+                    <span class="ref-strip__quote-icon">"</span>
+                </div>
+                <div class="ref-strip__center">
+                    <p class="ref-strip__text">"{{ 'references.ref1.text' | translate }}"</p>
+                </div>
+                <div class="ref-strip__right">
+                    <a [href]="'references.ref1.linkedin' | translate" target="_blank" rel="noopener noreferrer" class="ref-strip__author">
+                        <span class="ref-strip__name">{{ 'references.ref1.name' | translate }}</span>
+                        <span class="ref-strip__role">LinkedIn ↗</span>
+                    </a>
+                </div>
+            </div>
         </article>
 
-        <article
-            class="references__card-container animate-on-scroll"
-            style="animation-delay: 0.2s"
-            aria-labelledby="references-ref2-title"
-        >
-            <svg class="references__quote-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 7L8 11H11V17H5V11L7 7H10ZM19 7L17 11H20V17H14V11L16 7H19Z" fill="currentColor" />
-            </svg>
-            <h3 id="references-ref2-name" class="references__card-title">
-                {{ 'references.ref2.name' | translate }}
-            </h3>
-            <p class="references__card-description">
-                {{ 'references.ref2.text' | translate }}
-            </p>
+        <article class="ref-strip animate-on-scroll" style="animation-delay: 0.2s">
+            <div class="ref-strip__inner">
+                <div class="ref-strip__left">
+                    <span class="ref-strip__quote-icon">"</span>
+                </div>
+                <div class="ref-strip__center">
+                    <p class="ref-strip__text">"{{ 'references.ref2.text' | translate }}"</p>
+                </div>
+                <div class="ref-strip__right">
+                    <a [href]="'references.ref2.linkedin' | translate" target="_blank" rel="noopener noreferrer" class="ref-strip__author">
+                        <span class="ref-strip__name">{{ 'references.ref2.name' | translate }}</span>
+                        <span class="ref-strip__role">LinkedIn ↗</span>
+                    </a>
+                </div>
+            </div>
         </article>
 
-        <article
-            class="references__card-container animate-on-scroll"
-            style="animation-delay: 0.3s"
-            aria-labelledby="references-ref3-title"
-        >
-            <svg class="references__quote-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 7L8 11H11V17H5V11L7 7H10ZM19 7L17 11H20V17H14V11L16 7H19Z" fill="currentColor" />
-            </svg>
-            <h3 id="references-ref3-name" class="references__card-title">
-                {{ 'references.ref3.name' | translate }}
-            </h3>
-            <p class="references__card-description">
-                {{ 'references.ref3.text' | translate }}
-            </p>
+        <article class="ref-strip animate-on-scroll" style="animation-delay: 0.3s">
+            <div class="ref-strip__inner">
+                <div class="ref-strip__left">
+                    <span class="ref-strip__quote-icon">"</span>
+                </div>
+                <div class="ref-strip__center">
+                    <p class="ref-strip__text">"{{ 'references.ref3.text' | translate }}"</p>
+                </div>
+                <div class="ref-strip__right">
+                    <a [href]="'references.ref3.linkedin' | translate" target="_blank" rel="noopener noreferrer" class="ref-strip__author">
+                        <span class="ref-strip__name">{{ 'references.ref3.name' | translate }}</span>
+                        <span class="ref-strip__role">LinkedIn ↗</span>
+                    </a>
+                </div>
+            </div>
         </article>
 
-        <article
-            class="references__card-container animate-on-scroll"
-            style="animation-delay: 0.4s"
-            aria-labelledby="references-ref4-title"
-        >
-            <svg class="references__quote-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 7L8 11H11V17H5V11L7 7H10ZM19 7L17 11H20V17H14V11L16 7H19Z" fill="currentColor" />
-            </svg>
-            <h3 id="references-ref4-name" class="references__card-title">
-                {{ 'references.ref4.name' | translate }}
-            </h3>
-            <p class="references__card-description">
-                {{ 'references.ref4.text' | translate }}
-            </p>
-        </article>
     </div>
 </section>

@@ -11,8 +11,12 @@
         >
             <ul class="desktop-menu__list">
                 <li>
-                    <a href="#projects" role="menuitem">{{ 'menu.projects' | translate }}</a>
+                    <a href="#skills" role="menuitem">{{ 'menu.skills' | translate }}</a>
                 </li>
+                <li>
+                    <a href="#certificates" role="menuitem">{{ 'menu.certificates' | translate }}</a>
+                </li>
+
                 <li>
                     <a href="#references" role="menuitem">{{ 'menu.references' | translate }}</a>
                 </li>
@@ -167,24 +171,18 @@
         <div class="landing__mobile-menu-content">
             <ul role="menu" class="landing__mobile-menu-list">
                 <li class="landing__mobile-menu-item">
-                    <a href="#projects" role="menuitem" (click)="closeMenu()">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <polyline points="16 18 22 12 16 6"></polyline>
-                            <polyline points="8 6 2 12 8 18"></polyline>
-                        </svg>
-                        <span>{{ 'menu.projects' | translate }}</span>
+                    <a href="#skills" role="menuitem" (click)="closeMenu()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        <span>{{ 'menu.skills' | translate }}</span>
                     </a>
                 </li>
+                <li class="landing__mobile-menu-item">
+                    <a href="#certificates" role="menuitem" (click)="closeMenu()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                        <span>{{ 'menu.certificates' | translate }}</span>
+                    </a>
+                </li>
+
                 <li class="landing__mobile-menu-item">
                     <a href="#references" role="menuitem" (click)="closeMenu()">
                         <svg
@@ -298,7 +296,18 @@
     </nav>
     }
 </section>
-<rd-projects />
-<rd-references />
-<rd-contact />
-<rd-footer />
+
+<!-- Skills Section -->
+<rd-skills></rd-skills>
+
+<!-- Certificates Section -->
+<rd-certificates></rd-certificates>
+
+<!-- References Section -->
+<rd-references></rd-references>
+
+<!-- Contact Section -->
+<rd-contact></rd-contact>
+
+<!-- Footer -->
+<rd-footer></rd-footer>

@@ -1,0 +1,114 @@
+<section id="signals-playground" class="signals-playground">
+    <div class="signals-playground__container">
+        <div class="signals-playground__header animate-on-scroll">
+            <div class="signals-playground__tag">Live Demo</div>
+            <h2 class="signals-playground__title">
+                <span class="signals-playground__title--primary">Angular</span>
+                <span class="signals-playground__title--accent">Signals</span>
+                <span class="signals-playground__title--primary">Playground</span>
+            </h2>
+            <p class="signals-playground__subtitle">
+                Interact with the controls below and watch Angular's reactivity engine work in real time — no Zone.js required.
+            </p>
+        </div>
+
+        <div class="signals-playground__workspace">
+            <!-- Controls Panel -->
+            <div class="sp-panel sp-panel--controls animate-on-scroll">
+                <div class="sp-panel__header">
+                    <span class="sp-panel__dot sp-panel__dot--red"></span>
+                    <span class="sp-panel__dot sp-panel__dot--yellow"></span>
+                    <span class="sp-panel__dot sp-panel__dot--green"></span>
+                    <span class="sp-panel__title">controls.ts</span>
+                </div>
+                <div class="sp-controls">
+                    <div class="sp-control">
+                        <div class="sp-control__label">
+                            <code class="sp-code sp-code--signal">signal</code>
+                            <span>price</span>
+                        </div>
+                        <div class="sp-control__value">${{ priceSignal() }}</div>
+                        <div class="sp-control__buttons">
+                            <button class="sp-btn sp-btn--minus" (click)="decreasePrice()" id="decrease-price" aria-label="Decrease price">−</button>
+                            <button class="sp-btn sp-btn--plus" (click)="increasePrice()" id="increase-price" aria-label="Increase price">+</button>
+                        </div>
+                    </div>
+                    <div class="sp-control">
+                        <div class="sp-control__label">
+                            <code class="sp-code sp-code--signal">signal</code>
+                            <span>quantity</span>
+                        </div>
+                        <div class="sp-control__value">{{ quantitySignal() }}</div>
+                        <div class="sp-control__buttons">
+                            <button class="sp-btn sp-btn--minus" (click)="decreaseQty()" id="decrease-qty" aria-label="Decrease quantity">−</button>
+                            <button class="sp-btn sp-btn--plus" (click)="increaseQty()" id="increase-qty" aria-label="Increase quantity">+</button>
+                        </div>
+                    </div>
+                    <div class="sp-control">
+                        <div class="sp-control__label">
+                            <code class="sp-code sp-code--signal">signal</code>
+                            <span>discount</span>
+                        </div>
+                        <div class="sp-control__discount-btns">
+                            @for (pct of [0, 10, 20, 30]; track pct) {
+                            <button class="sp-discount-btn"
+                                [class.sp-discount-btn--active]="discountSignal() === pct"
+                                (click)="applyDiscount(pct)"
+                                [id]="'discount-' + pct"
+                                [attr.aria-label]="pct === 0 ? 'No discount' : pct + '% discount'">
+                                {{ pct === 0 ? 'None' : pct + '%' }}
+                            </button>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Output Panel -->
+            <div class="sp-panel sp-panel--output animate-on-scroll">
+                <div class="sp-panel__header">
+                    <span class="sp-panel__dot sp-panel__dot--red"></span>
+                    <span class="sp-panel__dot sp-panel__dot--yellow"></span>
+                    <span class="sp-panel__dot sp-panel__dot--green"></span>
+                    <span class="sp-panel__title">computed values</span>
+                </div>
+                <div class="sp-output">
+                    <div class="sp-output__row">
+                        <code class="sp-code sp-code--computed">computed</code>
+                        <span class="sp-output__label">subtotal</span>
+                        <span class="sp-output__value">${{ subtotal().toFixed(2) }}</span>
+                    </div>
+                    <div class="sp-output__row sp-output__row--discount">
+                        <code class="sp-code sp-code--computed">computed</code>
+                        <span class="sp-output__label">discount ({{ discountSignal() }}%)</span>
+                        <span class="sp-output__value sp-output__value--discount">−${{ discountAmount().toFixed(2) }}</span>
+                    </div>
+                    <div class="sp-output__divider"></div>
+                    <div class="sp-output__row sp-output__row--total">
+                        <code class="sp-code sp-code--effect">effect</code>
+                        <span class="sp-output__label">total</span>
+                        <span class="sp-output__value sp-output__value--total">${{ total().toFixed(2) }}</span>
+                    </div>
+                </div>
+                <div class="sp-log">
+                    <div class="sp-log__header">
+                        <span class="sp-log__indicator"></span>
+                        effect() log
+                    </div>
+                    <ul class="sp-log__list" aria-label="Effect log" aria-live="polite">
+                        @for (entry of logs(); track entry.timestamp + entry.message; let i = $index) {
+                        <li class="sp-log__entry sp-log__entry--{{ entry.type }}" [style.opacity]="1 - i * 0.15">
+                            <span class="sp-log__time">{{ entry.timestamp }}</span>
+                            <span>{{ entry.message }}</span>
+                        </li>
+                        }
+                        @empty {
+                        <li class="sp-log__entry sp-log__empty">Interact with the controls to see effects fire...</li>
+                        }
+                    </ul>
+                </div>
+                <button class="sp-reset" (click)="reset()" id="reset-playground" aria-label="Reset playground">Reset</button>
+            </div>
+        </div>
+    </div>
+</section>

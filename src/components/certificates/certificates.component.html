@@ -1,0 +1,43 @@
+<section id="certificates" class="certificates">
+
+    <div class="certificates__header animate-on-scroll">
+        <h2 class="certificates__title">Certifications</h2>
+    </div>
+
+    @for (cert of visibleCertificates(); track cert.title; let i = $index) {
+    <a [href]="cert.url" target="_blank" rel="noopener noreferrer"
+        [class]="'cert-strip cert-strip--' + (cert.issuer === 'Anthropic' ? 'anthropic' : 'angular') + ' animate-on-scroll'"
+        [style.animation-delay]="i * 0.08 + 's'"
+        [attr.aria-label]="'View certificate: ' + cert.title">
+
+        <div class="cert-strip__accent-bg"></div>
+
+        <div class="cert-strip__inner">
+            <div class="cert-strip__left">
+                <span class="cert-strip__index">0{{ i + 1 }}</span>
+                <span class="cert-strip__issuer">{{ cert.issuer }}</span>
+                <p class="cert-strip__description">{{ cert.description }}</p>
+            </div>
+
+            <div class="cert-strip__name">{{ cert.title }}</div>
+
+            <svg class="cert-strip__arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7"/>
+                <polyline points="7 7 17 7 17 17"/>
+            </svg>
+        </div>
+    </a>
+    }
+
+    <div class="certificates__actions animate-on-scroll">
+        @if (certificates.length > 3) {
+            <button class="certificates__toggle" (click)="toggleShowAll()">
+                <span>{{ showAll() ? 'Show less' : 'View all certificates' }}</span>
+                <span class="certificates__toggle-icon">{{ showAll() ? '—' : '+' }}</span>
+            </button>
+        }
+    </div>
+
+</section>
