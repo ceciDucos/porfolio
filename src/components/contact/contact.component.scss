@@ -106,7 +106,7 @@
         text-transform: uppercase;
         letter-spacing: 0.15em;
         background: $cyan-color;
-        color: #0a0a0a;
+        color: $black-color;
         border: none;
         border-radius: 4px;
         font-weight: 700;
@@ -114,6 +114,10 @@
         margin-bottom: 8rem;
         cursor: pointer;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        @media (max-width: $tablet) {
+            max-width: 100%;
+        }
 
         &:hover:not(:disabled) {
             transform: translateY(-1px);
@@ -126,8 +130,8 @@
 
         &:disabled {
             opacity: 0.6;
-            background: #00d4ff;
-            color: black;
+            background: $cyan-color;
+            color: $black-color;
             cursor: not-allowed;
         }
     }

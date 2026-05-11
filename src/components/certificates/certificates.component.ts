@@ -83,13 +83,7 @@ export class CertificatesComponent implements OnInit, OnDestroy {
             url: 'assets/certificates/Cecilia Ducos AWS Cloud Practitioner Essentials.pdf',
             theme: 'aws'
         },
-        {
-            title: 'AWS Foundations',
-            issuer: 'Amazon Web Services',
-            date: '2024',
-            url: 'assets/certificates/Cecilia Ducos AWS Foundations- Getting Started with the AWS Cloud Essentials.pdf',
-            theme: 'aws'
-        },
+
         {
             title: 'React For The Rest Of Us',
             issuer: 'Udemy',
