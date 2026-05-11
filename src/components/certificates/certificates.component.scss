@@ -7,7 +7,7 @@ $react-accent: #10b981;           // green for React as requested
 $default-accent: #00d4ff;         // cyan for defaults
 
 .certificates {
-    background-color: $light-black-color;
+    background-color: transparent;
     padding: 8rem 0;
 
     &__header {
@@ -135,12 +135,14 @@ $default-accent: #00d4ff;         // cyan for defaults
 
 
     &__name {
-        font-size: clamp(2.4rem, 4vw, 4rem);
+        font-size: clamp(2rem, 4vw, 4rem);
         font-weight: 700;
         color: $white-color;
-        line-height: 1.05;
+        line-height: 1.15;
         letter-spacing: -0.02em;
         margin: 0;
+        overflow-wrap: break-word;
+        word-break: break-word;
     }
 
     &__arrow {
@@ -160,7 +162,6 @@ $default-accent: #00d4ff;         // cyan for defaults
     justify-content: center;
     margin-top: 4rem;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.07);
 }
 
 .certificates__toggle {

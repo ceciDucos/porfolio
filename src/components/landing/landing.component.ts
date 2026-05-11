@@ -70,9 +70,16 @@ export class LandingComponent implements OnInit, OnDestroy {
         this.canvas.style.pointerEvents = 'none';
         this.canvas.style.zIndex = '0';
 
-        this.updateCanvasSize();
         this.renderer.appendChild(document.body, this.canvas);
         this.ctx = this.canvas.getContext('2d')!;
+
+        this.updateCanvasSize();
+
+        const resizeObserver = new ResizeObserver(() => {
+            this.updateCanvasSize();
+            this.recreateParticles();
+        });
+        resizeObserver.observe(document.body);
 
         window.addEventListener('resize', () => {
             this.updateCanvasSize();
@@ -81,17 +88,17 @@ export class LandingComponent implements OnInit, OnDestroy {
     }
 
     private updateCanvasSize(): void {
-        const footer = document.querySelector('footer');
-        if (footer) {
-            const footerTop = footer.getBoundingClientRect().top + window.scrollY;
-            this.canvas.width = window.innerWidth;
-            this.canvas.height = footerTop;
-            this.canvas.style.height = `${footerTop}px`;
-        } else {
-            this.canvas.width = window.innerWidth;
-            this.canvas.height = document.body.scrollHeight;
-            this.canvas.style.height = `${document.body.scrollHeight}px`;
-        }
+        const fullHeight = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight,
+            document.body.offsetHeight,
+            document.documentElement.offsetHeight,
+            document.body.clientHeight,
+            document.documentElement.clientHeight
+        );
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = fullHeight;
+        this.canvas.style.height = `${fullHeight}px`;
     }
 
     private recreateParticles(): void {

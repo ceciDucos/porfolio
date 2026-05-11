@@ -2,6 +2,7 @@
 
 .references {
     @include app-container;
+    background-color: transparent !important;
 
     &__row {
         margin-bottom: $spacing-3xl;
