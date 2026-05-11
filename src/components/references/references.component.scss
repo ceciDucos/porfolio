@@ -80,24 +80,24 @@
     &__quote-icon {
         font-size: 6rem;
         font-family: Georgia, serif;
-        color: rgba(255,255,255,0.15);
+        color: $cyan-color;
         line-height: 0.5;
         padding-top: 2rem;
-        transition: color 0.3s ease;
+        transition: transform 0.3s ease;
     }
 
     &__center { flex: 1; }
 
     &__text {
-        font-size: 1.7rem;
+        font-size: 1.5rem;
         line-height: 1.7;
-        font-weight: 400;
+        font-weight: 500;
         color: rgba(255,255,255,0.95);
         margin: 0;
         letter-spacing: 0.01em;
         
         @media (min-width: $tablet) {
-            font-size: 1.9rem;
+            font-size: 1.7rem;
         }
     }
 

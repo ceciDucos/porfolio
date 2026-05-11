@@ -125,13 +125,15 @@
     }
 
     &__tech {
-        font-size: 1.2rem;
-        padding: 0.4rem 1rem;
-        background: rgba(255,255,255,0.04);
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+        background: rgba(255,255,255,0.02);
         border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 10rem;
+        border-radius: 4px;
         color: rgba(255,255,255,0.65);
         white-space: nowrap;
-        font-weight: 500;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
     }
 }

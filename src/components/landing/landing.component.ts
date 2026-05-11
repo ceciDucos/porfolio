@@ -4,7 +4,6 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ContactComponent } from '../contact/contact.component';
 import { FooterComponent } from '../footer/footer.component';
 import { ReferencesComponent } from '../references/references.component';
-import { ProjectsComponent } from '../projects/projects.component';
 import { SkillsComponent } from '../skills/skills.component';
 import { CertificatesComponent } from '../certificates/certificates.component';
 import { ThemeService } from '../../services/theme.service';
@@ -19,7 +18,7 @@ interface Particle {
 }
 
 @Component({
-    imports: [TranslateModule, ContactComponent, FooterComponent, ReferencesComponent, ProjectsComponent, SkillsComponent, CertificatesComponent],
+    imports: [TranslateModule, ContactComponent, FooterComponent, ReferencesComponent, SkillsComponent, CertificatesComponent],
     selector: 'landing',
     templateUrl: 'landing.component.html',
     styleUrls: ['landing.component.scss'],

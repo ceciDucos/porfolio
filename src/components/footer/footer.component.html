@@ -1,5 +1,12 @@
 <footer id="footer" class="footer" [attr.aria-label]="'footer.label' | translate">
-    <div class="footer__text">
-        <p class="footer__first">{{ 'footer.text' | translate }}</p>
+    <div class="footer__inner">
+        <div class="footer__left">
+            <span class="footer__copyright">{{ 'footer.text' | translate }}</span>
+        </div>
+        
+        <div class="footer__right">
+            <a href="https://github.com/ceciDucos" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub</a>
+            <a href="https://www.linkedin.com/in/cecilia-ducos/" target="_blank" rel="noopener noreferrer" class="footer__link">LinkedIn</a>
+        </div>
     </div>
 </footer>

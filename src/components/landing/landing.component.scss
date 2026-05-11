@@ -43,8 +43,9 @@
         display: flex;
         justify-content: flex-end;
         z-index: 100;
-        background: linear-gradient(to bottom, rgba(26, 26, 26, 0.95), rgba(26, 26, 26, 0.7), transparent);
-        backdrop-filter: blur(8px);
+        background: rgba(26, 26, 26, 0.7);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
 
         @media (min-width: $tablet) {
             justify-content: center;
@@ -147,26 +148,16 @@
 
     &__avatar {
         position: relative;
-        width: 20rem;
-        height: 20rem;
+        width: 18rem;
+        height: 18rem;
         border-radius: 50%;
         object-fit: cover;
-        border: 1px solid $white-transparent-08;
-        box-shadow: 0 20px 60px $black-transparent-50;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin: 0 auto;
 
         @media (min-width: $tablet) {
-            width: 24rem;
-            height: 24rem;
-        }
-
-        @media (min-width: $desktop) {
-            width: 26rem;
-            height: 26rem;
-        }
-
-        @media (min-width: $large-desktop) {
-            width: 28rem;
-            height: 28rem;
+            width: 22rem;
+            height: 22rem;
         }
     }
 
@@ -191,45 +182,25 @@
     }
 
     &__name {
-        font-size: 3.6rem;
-        font-weight: 700;
-        background: linear-gradient(135deg, $blue-color 0%, $cyan-color 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        font-size: clamp(3rem, 5vw, 5rem);
+        font-weight: 800;
+        color: $white-color;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        margin-top: 1rem;
         margin-bottom: 1.5rem;
-        line-height: 1.2;
-
-        @media (min-width: $tablet) {
-            font-size: 5.6rem;
-        }
-
-        @media (min-width: $desktop) {
-            font-size: 6.4rem;
-            margin-bottom: 2rem;
-        }
-
-        @media (min-width: $large-desktop) {
-            font-size: 7rem;
-            margin-bottom: 2.5rem;
-        }
     }
 
     &__subtitle {
-        color: $white-transparent-70;
-        font-size: 1.8rem;
-        font-weight: 300;
-        max-width: 50rem;
-        margin: 0 auto 3rem;
-        line-height: 1.6;
+        color: $cyan-color;
+        font-size: 1.4rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 4rem;
 
         @media (min-width: $tablet) {
-            font-size: 2rem;
-        }
-
-        @media (min-width: $large-desktop) {
-            font-size: 2.2rem;
-            margin-bottom: 4rem;
+            font-size: 1.6rem;
         }
     }
 
@@ -279,31 +250,24 @@
 
     &__social {
         display: flex;
-        gap: 2rem;
+        gap: 2.4rem;
         justify-content: center;
 
         &-link {
-            width: 48px;
-            height: 48px;
+            color: rgba(255, 255, 255, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
-            background: $grey-transparent-60;
-            color: $white-transparent-70;
-            transition: all $transition-base;
-            border: 1px solid $blue-transparent-30;
-
-            &:hover {
-                color: $white-color;
-                border-color: $blue-color;
-                background: $blue-transparent-10;
-                transform: translateY(-2px);
-            }
+            transition: all 0.3s ease;
 
             svg {
-                width: 24px;
-                height: 24px;
+                width: 28px;
+                height: 28px;
+            }
+
+            &:hover {
+                color: $cyan-color;
+                transform: translateY(-2px);
             }
         }
     }
@@ -391,14 +355,13 @@
         &-list {
             display: flex;
             flex-direction: column;
-            gap: 1.2rem;
-            margin-bottom: 3rem;
+            gap: 0;
+            margin-bottom: 4rem;
         }
 
         &-item {
-            border-radius: $radius-md;
-            background: $grey-transparent-15;
-            border: 1px solid $white-transparent-08;
+            background: transparent;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             transition: all $transition-base;
             overflow: hidden;
             position: relative;
@@ -409,55 +372,58 @@
                 }
             }
 
-            @media (hover: hover) {
-                &:hover {
-                    border-color: $blue-transparent-60;
-                    background: $grey-transparent-60;
-                    transform: translateX(-4px);
+            &:active {
+                background: rgba(255, 255, 255, 0.02);
 
-                    svg {
-                        transform: translateX(4px);
-                        color: $blue-color;
-                    }
+                a {
+                    color: $white-color;
+                }
+
+                svg {
+                    color: $cyan-color;
+                    transform: translateX(4px);
                 }
             }
 
             &--highlight {
-                background: $grey-transparent-15;
-                border: 2px solid $blue-transparent-20;
+                border-bottom: none;
+                margin-top: 3rem;
 
                 a {
-                    font-weight: 600;
-                }
+                    background: $cyan-color;
+                    color: #0a0a0a;
+                    border: none;
+                    border-radius: 4px;
+                    justify-content: center;
+                    font-size: 1.4rem;
+                    font-weight: 700;
+                    padding: 1.5rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
 
-                @media (hover: hover) {
-                    &:hover {
-                        background-image: linear-gradient($grey-transparent-60, $grey-transparent-60),
-                            linear-gradient(135deg, $blue-color 0%, $cyan-color 100%);
-                        animation: none;
-
-                        svg {
-                            transform: translateX(4px);
-                            color: $cyan-color;
-                        }
+                    svg {
+                        color: #0a0a0a;
                     }
                 }
             }
 
             a {
-                color: $white-color;
+                color: rgba(255, 255, 255, 0.7);
                 text-decoration: none;
                 display: flex;
                 align-items: center;
-                gap: 1.6rem;
-                padding: 1.6rem 2rem;
-                font-weight: 300;
-                font-size: 1.8rem;
+                gap: 2rem;
+                padding: 2.5rem 1rem;
+                font-weight: 500;
+                font-size: 1.6rem;
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+                transition: color 0.3s ease;
 
                 svg {
                     flex-shrink: 0;
                     transition: all $transition-base;
-                    color: $white-transparent-70;
+                    color: rgba(255, 255, 255, 0.3);
                 }
 
                 span {
@@ -473,24 +439,24 @@
 
         &-social {
             display: flex;
-            gap: 1.6rem;
+            gap: 3rem;
             justify-content: center;
 
             a {
-                width: 44px;
-                height: 44px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                border-radius: 50%;
-                background: $grey-transparent-60;
-                color: $white-transparent-70;
+                color: rgba(255, 255, 255, 0.5);
                 transition: all $transition-base;
 
-                &:hover {
-                    background: $blue-color;
-                    color: $white-color;
-                    transform: translateY(-4px) scale(1.1);
+                svg {
+                    width: 28px;
+                    height: 28px;
+                }
+
+                &:active {
+                    color: $cyan-color;
+                    transform: translateY(-2px);
                 }
             }
         }
@@ -500,7 +466,7 @@
 .desktop-menu {
     &__list {
         display: flex;
-        gap: 2.4rem;
+        gap: 3.5rem;
         align-items: center;
 
         li {
@@ -508,52 +474,41 @@
         }
 
         a:not(.desktop-menu__cv-btn) {
-            color: $white-transparent-70;
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: 400;
-            transition: all $transition-base;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            transition: color 0.3s ease;
             position: relative;
 
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: -4px;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background: linear-gradient(90deg, $blue-color, $cyan-color);
-                transition: width $transition-base;
-            }
-
             &:hover {
-                color: $white-color;
-
-                &::after {
-                    width: 100%;
-                }
+                color: $cyan-color;
             }
         }
     }
 
     &__cv-btn {
-        border: 1px solid $blue-transparent-30;
+        background: $cyan-color;
+        color: #0a0a0a;
+        border: none;
         display: inline-flex;
         align-items: center;
-        gap: 0.8rem;
-        padding: 1rem 2rem;
-        background: transparent;
-        color: $white-color;
-        border-radius: $radius-lg;
-        transition: all $transition-base;
-        font-weight: 500;
-        font-size: 1.5rem;
+        gap: 1rem;
+        padding: 1.1rem 2.2rem;
+        border-radius: 4px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-weight: 700;
+        font-size: 1.15rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
         text-decoration: none;
 
         &:hover {
-            border-color: $blue-color;
-            background: $blue-transparent-10;
             transform: translateY(-1px);
+            filter: brightness(0.95);
+            color: #0a0a0a;
         }
 
         &:active {
@@ -561,8 +516,9 @@
         }
 
         svg {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
+            color: #0a0a0a;
         }
     }
 }
