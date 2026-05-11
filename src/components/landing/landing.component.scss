@@ -43,7 +43,7 @@
         display: flex;
         justify-content: flex-end;
         z-index: 100;
-        background: rgba(26, 26, 26, 0.7);
+        background: $black-color;
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
 
@@ -267,7 +267,6 @@
 
             &:hover {
                 color: $cyan-color;
-                transform: translateY(-2px);
             }
         }
     }
@@ -297,7 +296,7 @@
         &-backdrop {
             position: absolute;
             inset: 0;
-            background-color: #1a1a1a;
+            background-color: $black-color;
             backdrop-filter: blur(10px);
             animation: fadeIn 0.3s ease-out;
         }
