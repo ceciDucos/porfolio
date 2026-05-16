@@ -63,10 +63,11 @@ export class LandingComponent implements OnInit, OnDestroy {
     private initCanvas(): void {
         this.canvas = this.renderer.createElement('canvas');
         this.canvas.classList.add('landing__canvas');
-        this.canvas.style.position = 'absolute';
+        this.canvas.style.position = 'fixed';
         this.canvas.style.top = '0';
         this.canvas.style.left = '0';
         this.canvas.style.width = '100%';
+        this.canvas.style.height = '100%';
         this.canvas.style.pointerEvents = 'none';
         this.canvas.style.zIndex = '0';
 
@@ -75,12 +76,6 @@ export class LandingComponent implements OnInit, OnDestroy {
 
         this.updateCanvasSize();
 
-        const resizeObserver = new ResizeObserver(() => {
-            this.updateCanvasSize();
-            this.recreateParticles();
-        });
-        resizeObserver.observe(document.body);
-
         window.addEventListener('resize', () => {
             this.updateCanvasSize();
             this.recreateParticles();
@@ -88,17 +83,8 @@ export class LandingComponent implements OnInit, OnDestroy {
     }
 
     private updateCanvasSize(): void {
-        const fullHeight = Math.max(
-            document.body.scrollHeight,
-            document.documentElement.scrollHeight,
-            document.body.offsetHeight,
-            document.documentElement.offsetHeight,
-            document.body.clientHeight,
-            document.documentElement.clientHeight
-        );
         this.canvas.width = window.innerWidth;
-        this.canvas.height = fullHeight;
-        this.canvas.style.height = `${fullHeight}px`;
+        this.canvas.height = window.innerHeight;
     }
 
     private recreateParticles(): void {
