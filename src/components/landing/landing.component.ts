@@ -1,5 +1,5 @@
 
-import { Component, HostListener, OnInit, OnDestroy, ElementRef, Renderer2, inject } from '@angular/core';
+import { Component, HostListener, OnInit, OnDestroy, ElementRef, Renderer2, inject, afterNextRender } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ContactComponent } from '../contact/contact.component';
 import { FooterComponent } from '../footer/footer.component';
@@ -31,8 +31,8 @@ export class LandingComponent implements OnInit, OnDestroy {
     private mouseX = 0;
     private mouseY = 0;
     private animationId?: number;
+    private resizeObserver?: ResizeObserver;
 
-    // Inject theme service
     themeService = inject(ThemeService);
 
     @HostListener('document:keydown.escape')
@@ -43,10 +43,17 @@ export class LandingComponent implements OnInit, OnDestroy {
     @HostListener('mousemove', ['$event'])
     onMouseMove(event: MouseEvent): void {
         this.mouseX = event.clientX;
-        this.mouseY = event.clientY;
+        this.mouseY = event.clientY + window.scrollY;
     }
 
-    constructor(public translate: TranslateService, private el: ElementRef, private renderer: Renderer2) {}
+    constructor(public translate: TranslateService, private el: ElementRef, private renderer: Renderer2) {
+        // afterNextRender fires once Angular has fully rendered all child components —
+        // the clean alternative to setTimeout for measuring post-render DOM geometry.
+        afterNextRender(() => {
+            this.updateCanvasSize();
+            this.recreateParticles();
+        });
+    }
 
     ngOnInit(): void {
         this.initCanvas();
@@ -58,33 +65,54 @@ export class LandingComponent implements OnInit, OnDestroy {
         if (this.animationId) {
             cancelAnimationFrame(this.animationId);
         }
+        this.resizeObserver?.disconnect();
+        window.removeEventListener('resize', this.onResize);
     }
+
+    private onResize = () => {
+        this.updateCanvasSize();
+        this.recreateParticles();
+    };
 
     private initCanvas(): void {
         this.canvas = this.renderer.createElement('canvas');
         this.canvas.classList.add('landing__canvas');
-        this.canvas.style.position = 'fixed';
+        this.canvas.style.position = 'absolute';
         this.canvas.style.top = '0';
         this.canvas.style.left = '0';
         this.canvas.style.width = '100%';
-        this.canvas.style.height = '100%';
         this.canvas.style.pointerEvents = 'none';
         this.canvas.style.zIndex = '0';
+
+        document.body.style.position = 'relative';
 
         this.renderer.appendChild(document.body, this.canvas);
         this.ctx = this.canvas.getContext('2d')!;
 
+        // Initial size (may not include all sub-components yet — afterNextRender handles that)
         this.updateCanvasSize();
 
-        window.addEventListener('resize', () => {
-            this.updateCanvasSize();
-            this.recreateParticles();
-        });
+        // Watch for body height changes after the initial render
+        // (e.g. web fonts loading, dynamic content, accordion toggles)
+        this.resizeObserver = new ResizeObserver(() => this.updateCanvasSize());
+        this.resizeObserver.observe(document.body);
+
+        window.addEventListener('resize', this.onResize);
     }
 
     private updateCanvasSize(): void {
+        // Collapse to 0 before measuring to break the self-referential feedback loop
+        this.canvas.style.height = '0px';
+        this.canvas.height = 0;
+
+        const fullHeight = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight
+        );
+
         this.canvas.width = window.innerWidth;
-        this.canvas.height = window.innerHeight;
+        this.canvas.height = fullHeight;
+        this.canvas.style.height = fullHeight + 'px';
     }
 
     private recreateParticles(): void {
@@ -93,9 +121,10 @@ export class LandingComponent implements OnInit, OnDestroy {
     }
 
     private createParticles(): void {
-        const screenArea = this.canvas.width * this.canvas.height;
+        // Density based on viewport (not full doc) to keep particle count reasonable
+        const viewportArea = window.innerWidth * window.innerHeight;
         const densityFactor = window.innerWidth < 768 ? 25000 : 15000;
-        const particleCount = Math.floor(screenArea / densityFactor);
+        const particleCount = Math.floor(viewportArea / densityFactor);
 
         for (let i = 0; i < particleCount; i++) {
             this.particles.push({
